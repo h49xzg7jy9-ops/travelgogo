@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Travel gogo User Agreement">
+    <title>User Agreement - Travel gogo</title>
+    <link rel="icon" href="app-logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #007AFF;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --bg-color: #FFFFFF;
+            --bg-secondary: #F5F5F7;
+            --border-color: #D2D2D7;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-primary: #F5F5F7;
+                --text-secondary: #86868B;
+                --bg-color: #1D1D1F;
+                --bg-secondary: #2C2C2E;
+                --border-color: #38383A;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .lang-switcher {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .lang-switcher button {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switcher button:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .lang-switcher button.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .back-link {
+            margin-bottom: 30px;
+        }
+
+        .back-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            white-space: pre-line;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 60px;
+            margin-top: 80px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        [data-lang="zh"] {
+            display: none;
+        }
+
+        html[lang="zh-CN"] [data-lang="zh"] {
+            display: block;
+        }
+
+        html[lang="zh-CN"] [data-lang="en"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button onclick="switchLang('en')" class="lang-btn active" data-lang="en">English</button>
+            <button onclick="switchLang('zh')" class="lang-btn" data-lang="zh">中文</button>
+        </div>
+
+        <div class="back-link">
+            <a href="support.html" data-lang="en">← Back to Support</a>
+            <a href="support.html" data-lang="zh">← 返回支持页面</a>
+        </div>
+
+        <h1 data-lang="en">User Agreement</h1>
+        <h1 data-lang="zh">用户协议</h1>
+        
+        <p class="last-updated" data-lang="en">Last Updated: November 2025</p>
+        <p class="last-updated" data-lang="zh">最后更新日期：2025年11月</p>
+
+        <div class="section">
+            <h2 data-lang="en">1. Agreement Acceptance</h2>
+            <h2 data-lang="zh">1. 协议接受</h2>
+            <p data-lang="en">Welcome to Travel gogo!
+
+By downloading, installing, or using this app, you agree to comply with all terms and conditions of this user agreement.
+If you do not agree to these terms, please do not use this app.</p>
+            <p data-lang="zh">欢迎使用 Travel gogo！
+
+通过下载、安装或使用本应用，您同意遵守本用户协议的所有条款和条件。
+如果您不同意这些条款，请不要使用本应用。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">2. App License</h2>
+            <h2 data-lang="zh">2. 应用许可</h2>
+            <p data-lang="en">Subject to your compliance with this agreement, we grant you a limited, non-exclusive, non-transferable license to download and use this app on your personal device.
+
+You may not:
+• Copy, modify, distribute, sell, or lease any part of this app
+• Reverse engineer this app or attempt to extract source code
+• Use this app for any illegal activities</p>
+            <p data-lang="zh">在遵守本协议的前提下，我们授予您有限的、非独占的、不可转让的许可，以在您的个人设备上下载和使用本应用。
+
+您不得：
+• 复制、修改、分发、出售或租赁本应用的任何部分
+• 对本应用进行反向工程或尝试提取源代码
+• 使用本应用从事任何非法活动</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">3. User Responsibilities</h2>
+            <h2 data-lang="zh">3. 用户责任</h2>
+            <p data-lang="en">You are responsible for:
+• Ensuring that the information you provide is accurate and complete
+• Protecting the security of your device to prevent unauthorized access
+• Being responsible for any actions using your device to access this app
+• Complying with all applicable laws and regulations</p>
+            <p data-lang="zh">您有责任：
+• 确保您提供的信息准确、完整
+• 保护您的设备安全，防止未经授权的访问
+• 对使用您的设备访问本应用的任何行为负责
+• 遵守所有适用的法律法规</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">4. Data Ownership</h2>
+            <h2 data-lang="zh">4. 数据所有权</h2>
+            <p data-lang="en">All data you enter into the app belongs to you.
+We do not access, view, or use your personal data.
+
+You have complete control and can delete or export your data at any time.</p>
+            <p data-lang="zh">您输入到应用中的所有数据归您所有。
+我们不会访问、查看或使用您的个人数据。
+
+您拥有完全控制权，可以随时删除或导出您的数据。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">5. Service Availability</h2>
+            <h2 data-lang="zh">5. 服务可用性</h2>
+            <p data-lang="en">We strive to ensure stable app operation, but do not guarantee:
+• The app will always be available or uninterrupted
+• The app will meet all your requirements
+• Errors in the app will be fixed promptly
+
+We reserve the right to modify, suspend, or terminate the service at any time.</p>
+            <p data-lang="zh">我们努力确保应用稳定运行，但不保证：
+• 应用将始终可用或不受中断
+• 应用将满足您的所有要求
+• 应用中的错误将得到及时修复
+
+我们保留随时修改、暂停或终止服务的权利。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">6. Disclaimer</h2>
+            <h2 data-lang="zh">6. 免责声明</h2>
+            <p data-lang="en">This app is provided "as is" without any express or implied warranties.
+
+We are not liable for:
+• Any direct or indirect losses arising from the use or inability to use this app
+• Data loss or damage
+• Any consequences resulting from app failures
+
+To the maximum extent permitted by law, our liability is limited to the amount you paid for the app (if applicable).</p>
+            <p data-lang="zh">本应用按"原样"提供，不提供任何明示或暗示的保证。
+
+我们不对以下情况承担责任：
+• 因使用或无法使用本应用而产生的任何直接或间接损失
+• 数据丢失或损坏
+• 因应用故障导致的任何后果
+
+在法律允许的最大范围内，我们的责任仅限于您为应用支付的金额（如果适用）。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">7. Intellectual Property</h2>
+            <h2 data-lang="zh">7. 知识产权</h2>
+            <p data-lang="en">This app and all its content (including but not limited to text, graphics, icons, images, software) are protected by copyright, trademark, and other intellectual property laws.
+
+This app is the property of JoryKK and may not be used without authorization.</p>
+            <p data-lang="zh">本应用及其所有内容（包括但不限于文本、图形、图标、图像、软件）均受版权、商标和其他知识产权法律保护。
+
+本应用是 JoryKK 的财产，未经授权不得使用。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">8. Third-Party Services</h2>
+            <h2 data-lang="zh">8. 第三方服务</h2>
+            <p data-lang="en">This app may use third-party services (such as iCloud), which are subject to their respective terms of service and privacy policies.
+
+We are not responsible for the availability, accuracy, or content of third-party services.</p>
+            <p data-lang="zh">本应用可能使用第三方服务（如 iCloud），这些服务受其各自的服务条款和隐私政策约束。
+
+我们对第三方服务的可用性、准确性或内容不承担任何责任。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">9. Agreement Changes</h2>
+            <h2 data-lang="zh">9. 协议变更</h2>
+            <p data-lang="en">We reserve the right to modify this agreement at any time.
+Significant changes will be notified through app updates or within the app.
+
+Continued use of the app indicates your acceptance of the modified agreement.
+If you do not agree to the modified agreement, please stop using the app.</p>
+            <p data-lang="zh">我们保留随时修改本协议的权利。
+重大变更将通过应用更新或在应用内通知您。
+
+继续使用应用即表示您接受修改后的协议。
+如果您不同意修改后的协议，请停止使用应用。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">10. Termination</h2>
+            <h2 data-lang="zh">10. 终止</h2>
+            <p data-lang="en">You may stop using the app and delete it at any time.
+
+We reserve the right to terminate your use of the app if you violate this agreement.</p>
+            <p data-lang="zh">您可以随时停止使用应用并删除应用。
+
+我们保留在您违反本协议时终止您使用应用的权利。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">11. Governing Law</h2>
+            <h2 data-lang="zh">11. 适用法律</h2>
+            <p data-lang="en">This agreement is governed by the laws of the People's Republic of China.
+
+Any disputes shall be resolved through friendly negotiation; if negotiation fails, disputes shall be submitted to a people's court with jurisdiction for resolution.</p>
+            <p data-lang="zh">本协议受中华人民共和国法律管辖。
+
+任何争议应通过友好协商解决；协商不成的，应提交至有管辖权的人民法院解决。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">12. Contact Us</h2>
+            <h2 data-lang="zh">12. 联系我们</h2>
+            <p data-lang="en">If you have any questions about this agreement, please contact us at:
+Email: jorykk11@icloud.com</p>
+            <p data-lang="zh">如果您对本协议有任何疑问，请通过以下方式联系我们：
+邮箱：jorykk11@icloud.com</p>
+        </div>
+
+        <footer>
+            <p data-lang="en">© 2025 JoryKK. All rights reserved.</p>
+            <p data-lang="zh">© 2025 JoryKK. 保留所有权利。</p>
+        </footer>
+    </div>
+
+    <script>
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('zh')) {
+                return 'zh';
+            }
+            return 'en';
+        }
+
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferredLang') || detectLanguage();
+            switchLang(savedLang);
+        }
+
+        function switchLang(lang) {
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+            
+            localStorage.setItem('preferredLang', lang);
+            
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.classList.contains('lang-btn')) return;
+                if (el.getAttribute('data-lang') === lang) {
+                    el.style.display = '';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        }
+
+        initLanguage();
+    </script>
+</body>
+</html>
+

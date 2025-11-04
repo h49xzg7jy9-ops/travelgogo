@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Travel gogo - 您的旅行伴侣。打包清单、行程规划、费用追踪，一站式解决。">
-    <title>Travel gogo - 支持与帮助</title>
+    <meta name="description" content="Travel gogo - Your Travel Companion. Packing lists, itinerary planning, expense tracking, all in one place.">
+    <title>Travel gogo - Support & Help</title>
+    <link rel="icon" href="app-logo.png">
     <style>
         * {
             margin: 0;
@@ -47,6 +48,35 @@
             padding: 60px 20px;
         }
 
+        .lang-switcher {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .lang-switcher button {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switcher button:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .lang-switcher button.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
         header {
             text-align: center;
             margin-bottom: 80px;
@@ -57,14 +87,19 @@
             width: 120px;
             height: 120px;
             margin: 0 auto 30px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: white;
             border-radius: 26px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
-            color: white;
             box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .app-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         h1 {
@@ -287,115 +322,204 @@
                 padding: 24px;
             }
         }
+
+        [data-lang="zh"] {
+            display: none;
+        }
+
+        html[lang="zh-CN"] [data-lang="zh"] {
+            display: block;
+        }
+
+        html[lang="zh-CN"] [data-lang="en"] {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="lang-switcher">
+            <button onclick="switchLang('en')" class="lang-btn active" data-lang="en">English</button>
+            <button onclick="switchLang('zh')" class="lang-btn" data-lang="zh">中文</button>
+        </div>
+
         <header>
-            <div class="app-logo">✈️</div>
-            <h1>Travel gogo</h1>
-            <p class="subtitle">Go anywhere, anytime</p>
+            <div class="app-logo">
+                <img src="app-logo.png" alt="Travel gogo">
+            </div>
+            <h1 data-lang="en">Travel gogo</h1>
+            <h1 data-lang="zh">Travel gogo</h1>
+            <p class="subtitle" data-lang="en">Go anywhere, anytime</p>
+            <p class="subtitle" data-lang="zh">世界再大，我也要go</p>
         </header>
 
         <section class="section">
-            <h2 class="section-title">联系我们</h2>
+            <h2 class="section-title" data-lang="en">Contact Us</h2>
+            <h2 class="section-title" data-lang="zh">联系我们</h2>
             <div class="contact-card">
                 <div class="contact-item">
                     <div class="contact-icon">📧</div>
                     <div class="contact-info">
-                        <h3>邮箱支持</h3>
+                        <h3 data-lang="en">Email Support</h3>
+                        <h3 data-lang="zh">邮箱支持</h3>
                         <a href="mailto:jorykk11@icloud.com">jorykk11@icloud.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">⏰</div>
                     <div class="contact-info">
-                        <h3>响应时间</h3>
-                        <p style="color: var(--text-secondary); font-size: 15px; margin: 0;">我们会在 24-48 小时内回复您的邮件</p>
+                        <h3 data-lang="en">Response Time</h3>
+                        <h3 data-lang="zh">响应时间</h3>
+                        <p style="color: var(--text-secondary); font-size: 15px; margin: 0;" data-lang="en">We will respond to your email within 24-48 hours</p>
+                        <p style="color: var(--text-secondary); font-size: 15px; margin: 0;" data-lang="zh">我们会在 24-48 小时内回复您的邮件</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">常见问题</h2>
+            <h2 class="section-title" data-lang="en">Frequently Asked Questions</h2>
+            <h2 class="section-title" data-lang="zh">常见问题</h2>
             
             <div class="faq-item">
                 <div class="faq-question">
-                    <span>如何开始使用 Travel gogo？</span>
+                    <span data-lang="en">How do I get started with Travel gogo?</span>
+                    <span data-lang="zh">如何开始使用 Travel gogo？</span>
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    首次打开应用时，您会看到引导界面。按照提示创建您的第一个旅行，然后就可以开始添加打包清单、规划行程和记录费用了。
+                    <p data-lang="en">When you first open the app, you'll see an onboarding interface. Follow the prompts to create your first trip, then you can start adding packing lists, planning itineraries, and recording expenses.</p>
+                    <p data-lang="zh">首次打开应用时，您会看到引导界面。按照提示创建您的第一个旅行，然后就可以开始添加打包清单、规划行程和记录费用了。</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    <span>我的数据会同步到云端吗？</span>
+                    <span data-lang="en">Will my data sync to the cloud?</span>
+                    <span data-lang="zh">我的数据会同步到云端吗？</span>
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    目前 Travel gogo 使用本地存储，您的数据安全地保存在您的设备上。我们正在开发云端同步功能，敬请期待。
+                    <p data-lang="en">Currently, Travel gogo uses local storage, and your data is securely stored on your device. We are developing cloud sync functionality, so stay tuned!</p>
+                    <p data-lang="zh">目前 Travel gogo 使用本地存储，您的数据安全地保存在您的设备上。我们正在开发云端同步功能，敬请期待。</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    <span>如何备份我的旅行数据？</span>
+                    <span data-lang="en">How do I backup my travel data?</span>
+                    <span data-lang="zh">如何备份我的旅行数据？</span>
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    您可以通过应用的分享功能导出旅行数据。在旅行详情页面点击分享按钮，选择保存或发送到其他应用进行备份。
+                    <p data-lang="en">You can export your travel data through the app's share feature. Click the share button on the trip details page, then choose to save or send to other apps for backup.</p>
+                    <p data-lang="zh">您可以通过应用的分享功能导出旅行数据。在旅行详情页面点击分享按钮，选择保存或发送到其他应用进行备份。</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    <span>应用支持哪些语言？</span>
+                    <span data-lang="en">What languages does the app support?</span>
+                    <span data-lang="zh">应用支持哪些语言？</span>
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    Travel gogo 支持多种语言，包括简体中文、繁体中文、英语、日语、韩语、法语、德语、西班牙语、葡萄牙语、俄语、泰语、越南语和阿拉伯语。您可以在设置中切换语言。
+                    <p data-lang="en">Travel gogo supports multiple languages, including Simplified Chinese, Traditional Chinese, English, Japanese, Korean, French, German, Spanish, Portuguese, Russian, Thai, Vietnamese, and Arabic. You can switch languages in settings.</p>
+                    <p data-lang="zh">Travel gogo 支持多种语言，包括简体中文、繁体中文、英语、日语、韩语、法语、德语、西班牙语、葡萄牙语、俄语、泰语、越南语和阿拉伯语。您可以在设置中切换语言。</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    <span>如何报告问题或建议功能？</span>
+                    <span data-lang="en">How do I report issues or suggest features?</span>
+                    <span data-lang="zh">如何报告问题或建议功能？</span>
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    如果您遇到任何问题或有功能建议，请发送邮件至 jorykk11@icloud.com，我们会认真考虑您的反馈。
+                    <p data-lang="en">If you encounter any issues or have feature suggestions, please email jorykk11@icloud.com. We will carefully consider your feedback.</p>
+                    <p data-lang="zh">如果您遇到任何问题或有功能建议，请发送邮件至 jorykk11@icloud.com，我们会认真考虑您的反馈。</p>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">相关链接</h2>
+            <h2 class="section-title" data-lang="en">Related Links</h2>
+            <h2 class="section-title" data-lang="zh">相关链接</h2>
             <div class="link-card">
-                <a href="#" class="link-item">
-                    <h3>隐私政策</h3>
-                    <p>了解我们如何保护您的隐私</p>
+                <a href="privacy.html" class="link-item">
+                    <h3 data-lang="en">Privacy Policy</h3>
+                    <h3 data-lang="zh">隐私政策</h3>
+                    <p data-lang="en">Learn how we protect your privacy</p>
+                    <p data-lang="zh">了解我们如何保护您的隐私</p>
                 </a>
-                <a href="#" class="link-item">
-                    <h3>使用条款</h3>
-                    <p>阅读服务使用条款</p>
+                <a href="agreement.html" class="link-item">
+                    <h3 data-lang="en">Terms of Service</h3>
+                    <h3 data-lang="zh">使用条款</h3>
+                    <p data-lang="en">Read the terms of service</p>
+                    <p data-lang="zh">阅读服务使用条款</p>
                 </a>
-                <a href="https://apps.apple.com/app/id6739637318" class="link-item" target="_blank" rel="noopener noreferrer">
-                    <h3>App Store</h3>
-                    <p>在 App Store 中查看应用</p>
+                <a href="https://apps.apple.com/app/id6754779604" class="link-item" target="_blank" rel="noopener noreferrer">
+                    <h3 data-lang="en">App Store</h3>
+                    <h3 data-lang="zh">App Store</h3>
+                    <p data-lang="en">View the app on the App Store</p>
+                    <p data-lang="zh">在 App Store 中查看应用</p>
                 </a>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2025 Travel gogo. All rights reserved.</p>
-            <p style="margin-top: 8px;">由 <a href="https://jorykk.top" style="color: var(--primary-color); text-decoration: none;">jorykk.top</a> 提供支持</p>
+            <p data-lang="en">&copy; 2025 Travel gogo. All rights reserved.</p>
+            <p data-lang="zh">&copy; 2025 Travel gogo. 保留所有权利。</p>
+            <p style="margin-top: 8px;">
+                <span data-lang="en">Powered by </span>
+                <span data-lang="zh">由 </span>
+                <a href="https://jorykk.top" style="color: var(--primary-color); text-decoration: none;">jorykk.top</a>
+                <span data-lang="en"></span>
+                <span data-lang="zh"> 提供支持</span>
+            </p>
         </footer>
     </div>
 
     <script>
+        // 检测浏览器语言并设置默认语言
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('zh')) {
+                return 'zh';
+            }
+            return 'en';
+        }
+
+        // 初始化语言
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferredLang') || detectLanguage();
+            switchLang(savedLang);
+        }
+
+        // 切换语言
+        function switchLang(lang) {
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            // 更新按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+            
+            // 保存语言偏好
+            localStorage.setItem('preferredLang', lang);
+            
+            // 显示/隐藏对应语言的内容
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.classList.contains('lang-btn')) return;
+                if (el.getAttribute('data-lang') === lang) {
+                    el.style.display = '';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        }
+
         // FAQ 折叠功能
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
@@ -414,20 +538,8 @@
             });
         });
 
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        // 页面加载时初始化语言
+        initLanguage();
     </script>
 </body>
 </html>
-
