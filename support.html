@@ -14,8 +14,8 @@
         }
 
         :root {
-            --primary-color: #007AFF;
-            --secondary-color: #5856D6;
+            --primary-color: #006241;
+            --secondary-color: #00864F;
             --text-primary: #1D1D1F;
             --text-secondary: #86868B;
             --bg-color: #FFFFFF;
@@ -26,6 +26,8 @@
 
         @media (prefers-color-scheme: dark) {
             :root {
+                --primary-color: #00864F;
+                --secondary-color: #006241;
                 --text-primary: #F5F5F7;
                 --text-secondary: #86868B;
                 --bg-color: #1D1D1F;
@@ -66,15 +68,15 @@
         }
 
         .lang-switcher button:hover {
-            background: var(--primary-color);
+            background: #006241;
             color: white;
-            border-color: var(--primary-color);
+            border-color: #006241;
         }
 
         .lang-switcher button.active {
-            background: var(--primary-color);
+            background: #006241;
             color: white;
-            border-color: var(--primary-color);
+            border-color: #006241;
         }
 
         header {
@@ -92,8 +94,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 20px rgba(0, 98, 65, 0.15);
             overflow: hidden;
+            border: 2px solid rgba(0, 98, 65, 0.1);
         }
 
         .app-logo img {
@@ -120,7 +123,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            background: linear-gradient(135deg, #006241 0%, #004d33 100%);
             color: white;
             text-decoration: none;
             padding: 15px 32px;
@@ -129,7 +132,7 @@
             font-weight: 600;
             margin-top: 35px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 14px rgba(0, 122, 255, 0.35);
+            box-shadow: 0 4px 14px rgba(0, 98, 65, 0.35);
             border: none;
             cursor: pointer;
             position: relative;
@@ -153,13 +156,13 @@
 
         .app-store-button:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.45);
-            background: linear-gradient(135deg, #0088FF 0%, #0066FF 100%);
+            box-shadow: 0 8px 24px rgba(0, 98, 65, 0.45);
+            background: linear-gradient(135deg, #00864F 0%, #006241 100%);
         }
 
         .app-store-button:active {
             transform: translateY(-1px) scale(1);
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.35);
+            box-shadow: 0 4px 12px rgba(0, 98, 65, 0.35);
         }
 
         .app-store-icon {
@@ -330,7 +333,7 @@
         .link-item:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow);
-            background: var(--primary-color);
+            background: #006241;
             color: white;
         }
 
