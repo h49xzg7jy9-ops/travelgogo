@@ -63,7 +63,6 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
-            margin-left: 8px;
             transition: all 0.2s ease;
         }
 
@@ -73,10 +72,112 @@
             border-color: #006241;
         }
 
-        .lang-switcher button.active {
-            background: #006241;
+        /* 语言选择弹窗样式 */
+        .lang-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-modal.active {
+            display: flex;
+        }
+
+        .lang-modal-content {
+            background: var(--bg-color);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 400px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lang-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .lang-modal-header h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .lang-modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-modal-close:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .lang-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 8px;
+        }
+
+        .lang-option {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .lang-option:hover {
+            background: var(--primary-color);
             color: white;
-            border-color: #006241;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .lang-option.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
         }
 
         header {
@@ -401,8 +502,44 @@
 <body>
     <div class="container">
         <div class="lang-switcher">
-            <button onclick="switchLang('en')" class="lang-btn active" data-lang="en">English</button>
-            <button onclick="switchLang('zh')" class="lang-btn" data-lang="zh">中文</button>
+            <button onclick="openLangModal()" class="lang-btn" id="langToggleBtn">
+                <span id="currentLangText">English</span> ▼
+            </button>
+        </div>
+
+        <!-- 语言选择弹窗 -->
+        <div class="lang-modal" id="langModal" onclick="closeLangModalOnBackdrop(event)">
+            <div class="lang-modal-content" onclick="event.stopPropagation()">
+                <div class="lang-modal-header">
+                    <h3 data-lang="en">Select Language</h3>
+                    <h3 data-lang="zh">选择语言</h3>
+                    <h3 data-lang="ja">言語を選択</h3>
+                    <h3 data-lang="ko">언어 선택</h3>
+                    <h3 data-lang="es">Seleccionar idioma</h3>
+                    <h3 data-lang="fr">Sélectionner la langue</h3>
+                    <h3 data-lang="de">Sprache auswählen</h3>
+                    <h3 data-lang="ru">Выбрать язык</h3>
+                    <h3 data-lang="pt">Selecionar idioma</h3>
+                    <h3 data-lang="vi">Chọn ngôn ngữ</h3>
+                    <h3 data-lang="th">เลือกภาษา</h3>
+                    <h3 data-lang="ar">اختر اللغة</h3>
+                    <button class="lang-modal-close" onclick="closeLangModal()">×</button>
+                </div>
+                <div class="lang-options">
+                    <div class="lang-option" onclick="selectLang('en')" data-lang="en">English</div>
+                    <div class="lang-option" onclick="selectLang('zh')" data-lang="zh">中文</div>
+                    <div class="lang-option" onclick="selectLang('ja')" data-lang="ja">日本語</div>
+                    <div class="lang-option" onclick="selectLang('ko')" data-lang="ko">한국어</div>
+                    <div class="lang-option" onclick="selectLang('es')" data-lang="es">Español</div>
+                    <div class="lang-option" onclick="selectLang('fr')" data-lang="fr">Français</div>
+                    <div class="lang-option" onclick="selectLang('de')" data-lang="de">Deutsch</div>
+                    <div class="lang-option" onclick="selectLang('ru')" data-lang="ru">Русский</div>
+                    <div class="lang-option" onclick="selectLang('pt')" data-lang="pt">Português</div>
+                    <div class="lang-option" onclick="selectLang('vi')" data-lang="vi">Tiếng Việt</div>
+                    <div class="lang-option" onclick="selectLang('th')" data-lang="th">ไทย</div>
+                    <div class="lang-option" onclick="selectLang('ar')" data-lang="ar">العربية</div>
+                </div>
+            </div>
         </div>
 
         <header>
@@ -557,23 +694,66 @@
             const savedLang = localStorage.getItem('preferredLang') || detectLanguage();
             // 先隐藏所有语言内容，然后显示选中的语言
             document.querySelectorAll('[data-lang]').forEach(el => {
-                if (el.classList.contains('lang-btn')) return;
+                if (el.classList.contains('lang-btn') || el.classList.contains('lang-option') || el.id === 'langToggleBtn' || el.id === 'currentLangText') return;
                 el.style.display = 'none';
             });
             switchLang(savedLang);
+        }
+
+        const langNames = {
+            'en': 'English',
+            'zh': '中文',
+            'ja': '日本語',
+            'ko': '한국어',
+            'es': 'Español',
+            'fr': 'Français',
+            'de': 'Deutsch',
+            'ru': 'Русский',
+            'pt': 'Português',
+            'vi': 'Tiếng Việt',
+            'th': 'ไทย',
+            'ar': 'العربية'
+        };
+
+        function openLangModal() {
+            document.getElementById('langModal').classList.add('active');
+        }
+
+        function closeLangModal() {
+            document.getElementById('langModal').classList.remove('active');
+        }
+
+        function closeLangModalOnBackdrop(event) {
+            if (event.target.id === 'langModal') {
+                closeLangModal();
+            }
+        }
+
+        function selectLang(lang) {
+            switchLang(lang);
+            closeLangModal();
         }
 
         // 切换语言
         function switchLang(lang) {
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
             
-            // 更新按钮状态
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
+            // 更新语言按钮文本
+            const langBtn = document.getElementById('langToggleBtn');
+            if (langBtn) {
+                const currentLangText = document.getElementById('currentLangText');
+                if (currentLangText) {
+                    currentLangText.textContent = langNames[lang] || langNames['en'];
+                }
+            }
+            
+            // 更新弹窗中的选中状态
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.classList.remove('active');
             });
-            const activeBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
-            if (activeBtn) {
-                activeBtn.classList.add('active');
+            const activeOption = document.querySelector(`.lang-option[data-lang="${lang}"]`);
+            if (activeOption) {
+                activeOption.classList.add('active');
             }
             
             // 保存语言偏好
@@ -581,8 +761,8 @@
             
             // 显示/隐藏对应语言的内容
             document.querySelectorAll('[data-lang]').forEach(el => {
-                // 跳过按钮本身
-                if (el.classList.contains('lang-btn')) return;
+                // 跳过按钮本身和弹窗元素
+                if (el.classList.contains('lang-btn') || el.classList.contains('lang-option') || el.id === 'langToggleBtn' || el.id === 'currentLangText') return;
                 
                 const elementLang = el.getAttribute('data-lang');
                 if (elementLang === lang) {
