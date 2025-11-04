@@ -323,17 +323,7 @@
             }
         }
 
-        [data-lang="zh"] {
-            display: none;
-        }
-
-        html[lang="zh-CN"] [data-lang="zh"] {
-            display: block;
-        }
-
-        html[lang="zh-CN"] [data-lang="en"] {
-            display: none;
-        }
+        /* 语言切换由 JavaScript 控制，不在这里设置默认样式 */
     </style>
 </head>
 <body>
@@ -493,6 +483,11 @@
         // 初始化语言
         function initLanguage() {
             const savedLang = localStorage.getItem('preferredLang') || detectLanguage();
+            // 先隐藏所有语言内容，然后显示选中的语言
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.classList.contains('lang-btn')) return;
+                el.style.display = 'none';
+            });
             switchLang(savedLang);
         }
 
@@ -504,16 +499,30 @@
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+            const activeBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
             
             // 保存语言偏好
             localStorage.setItem('preferredLang', lang);
             
             // 显示/隐藏对应语言的内容
             document.querySelectorAll('[data-lang]').forEach(el => {
+                // 跳过按钮本身
                 if (el.classList.contains('lang-btn')) return;
-                if (el.getAttribute('data-lang') === lang) {
-                    el.style.display = '';
+                
+                const elementLang = el.getAttribute('data-lang');
+                if (elementLang === lang) {
+                    // 根据元素类型设置正确的 display
+                    const tagName = el.tagName;
+                    if (tagName === 'SPAN') {
+                        el.style.display = 'inline';
+                    } else if (tagName === 'A') {
+                        el.style.display = 'block';
+                    } else {
+                        el.style.display = 'block';
+                    }
                 } else {
                     el.style.display = 'none';
                 }
@@ -539,7 +548,11 @@
         });
 
         // 页面加载时初始化语言
-        initLanguage();
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initLanguage);
+        } else {
+            initLanguage();
+        }
     </script>
 </body>
 </html>
