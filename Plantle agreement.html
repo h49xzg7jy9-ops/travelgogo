@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plantle User Agreement">
+    <title data-lang="en">Terms of Service - Plantle</title>
+    <title data-lang="zh">用户协议 - Plantle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #34C759;
+            --secondary-color: #30D158;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --bg-color: #FFFFFF;
+            --bg-secondary: #F5F5F7;
+            --border-color: #D2D2D7;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #30D158;
+                --secondary-color: #34C759;
+                --text-primary: #F5F5F7;
+                --text-secondary: #86868B;
+                --bg-color: #1D1D1F;
+                --bg-secondary: #2C2C2E;
+                --border-color: #38383A;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .lang-switcher {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .lang-switcher button {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switcher button:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .lang-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-modal.active {
+            display: flex;
+        }
+
+        .lang-modal-content {
+            background: var(--bg-color);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 300px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lang-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .lang-modal-header h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .lang-modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-modal-close:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .lang-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .lang-option {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .lang-option:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .lang-option.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .back-link {
+            margin-bottom: 30px;
+        }
+
+        .back-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            white-space: pre-line;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 60px;
+            margin-top: 80px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button onclick="openLangModal()" class="lang-btn" id="langToggleBtn">
+                <span id="currentLangText">English</span> ▼
+            </button>
+        </div>
+
+        <!-- 语言选择弹窗 -->
+        <div class="lang-modal" id="langModal" onclick="closeLangModalOnBackdrop(event)">
+            <div class="lang-modal-content" onclick="event.stopPropagation()">
+                <div class="lang-modal-header">
+                    <h3 data-lang="en">Select Language</h3>
+                    <h3 data-lang="zh">选择语言</h3>
+                    <button class="lang-modal-close" onclick="closeLangModal()">×</button>
+                </div>
+                <div class="lang-options">
+                    <div class="lang-option" onclick="selectLang('en')" data-lang="en">English</div>
+                    <div class="lang-option" onclick="selectLang('zh')" data-lang="zh">中文</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html" data-lang="en">← Back</a>
+            <a href="index.html" data-lang="zh">← 返回</a>
+        </div>
+
+        <h1 data-lang="en">Terms of Service</h1>
+        <h1 data-lang="zh">用户协议</h1>
+        <p class="last-updated" data-lang="en">Last updated: November 21, 2025</p>
+        <p class="last-updated" data-lang="zh">最后更新：2025年11月21日</p>
+
+        <div class="section">
+            <h2 data-lang="en">1. Acceptance of Terms</h2>
+            <h2 data-lang="zh">1. 接受条款</h2>
+            <p data-lang="en">Welcome to [Plantle]! By downloading and using this app, you agree to comply with all terms of this user agreement. If you do not agree to any part of this agreement, please do not use this app.</p>
+            <p data-lang="zh">欢迎使用【植男植女】！通过下载和使用本应用，您同意遵守本用户协议的所有条款。如果您不同意本协议的任何部分，请不要使用本应用。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">2. License to Use</h2>
+            <h2 data-lang="zh">2. 使用许可</h2>
+            <p data-lang="en">We grant you a limited, non-exclusive, non-transferable license to use this app. You may download, install and use this app on your personal devices, but not for commercial purposes or any illegal use.</p>
+            <p data-lang="zh">我们授予您使用本应用的有限、非独占、不可转让的许可。您可以在个人设备上下载、安装和使用本应用，但不得用于商业目的或任何非法用途。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">3. Usage Guidelines</h2>
+            <h2 data-lang="zh">3. 使用规范</h2>
+            <p data-lang="en">Please use the plant care suggestions provided by this app reasonably. The care suggestions provided by this app are for reference only. Actual care effects may vary due to environmental factors, plant varieties, care methods, etc. We are not responsible for plant losses caused by using this app.</p>
+            <p data-lang="zh">请合理使用本应用提供的植物养护建议。本应用提供的养护建议仅供参考，实际养护效果可能因环境、植物品种、养护方法等因素而异。我们不对因使用本应用而导致的植物损失承担责任。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">4. Intellectual Property</h2>
+            <h2 data-lang="zh">4. 知识产权</h2>
+            <p data-lang="en">All content of this app, including but not limited to text, images, interface design, code, etc., is protected by intellectual property laws. Without authorization, you may not copy, modify, distribute or use any part of this app.</p>
+            <p data-lang="zh">本应用的所有内容，包括但不限于文字、图片、界面设计、代码等，均受知识产权法保护。未经授权，您不得复制、修改、分发或使用本应用的任何部分。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">5. Disclaimer</h2>
+            <h2 data-lang="zh">5. 免责声明</h2>
+            <p data-lang="en">The plant care suggestions provided by this app are for reference only. Actual care effects may vary due to environmental factors, plant varieties, care methods, etc. We are not responsible for the following:
+- Plant loss or death caused by using this app
+- Plant problems caused by force majeure factors such as weather and environment
+- Any loss caused by improper user operation</p>
+            <p data-lang="zh">本应用提供的植物养护建议仅供参考。实际养护效果可能因环境、植物品种、养护方法等因素而异。我们不对以下情况承担责任：
+- 因使用本应用而导致的植物损失或死亡
+- 因天气、环境等不可抗力因素导致的植物问题
+- 因用户操作不当导致的任何损失</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">6. Service Changes</h2>
+            <h2 data-lang="zh">6. 服务变更</h2>
+            <p data-lang="en">We reserve the right to modify or terminate the service at any time without notice. We may update app features, fix bugs or adjust service content. We are not responsible for any loss caused by service changes.</p>
+            <p data-lang="zh">我们保留随时修改或终止服务的权利，恕不另行通知。我们可能会更新应用功能、修复错误或调整服务内容。我们不对因服务变更导致的任何损失承担责任。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">7. Data Security</h2>
+            <h2 data-lang="zh">7. 数据安全</h2>
+            <p data-lang="en">We value your data security, but cannot guarantee absolute data security. You should be responsible for backing up important data yourself. We are not responsible for any loss caused by data loss, leakage or damage.</p>
+            <p data-lang="zh">我们重视您的数据安全，但无法保证数据的绝对安全。您应自行负责备份重要数据。我们不对因数据丢失、泄露或损坏导致的任何损失承担责任。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">8. Third-Party Services</h2>
+            <h2 data-lang="zh">8. 第三方服务</h2>
+            <p data-lang="en">This app may use third-party services (such as Trefle API, iCloud, etc.). The use of these third-party services is subject to their respective terms of service and privacy policies. We are not responsible for the behavior of third-party services.</p>
+            <p data-lang="zh">本应用可能使用第三方服务（如 Trefle API、iCloud 等）。这些第三方服务的使用受其各自的服务条款和隐私政策约束。我们不对第三方服务的行为承担责任。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">9. Agreement Updates</h2>
+            <h2 data-lang="zh">9. 协议更新</h2>
+            <p data-lang="en">We reserve the right to modify this agreement at any time. Major changes will be notified to users through in-app notifications. Continued use of this app indicates that you accept the updated agreement.</p>
+            <p data-lang="zh">我们保留随时修改本协议的权利。重大更改将通过应用内通知的方式告知用户。继续使用本应用即表示您接受更新后的协议。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">10. Contact Us</h2>
+            <h2 data-lang="zh">10. 联系我们</h2>
+            <p data-lang="en">If you have any questions about this agreement, please contact us:
+Email: jorykk11@icloud.com</p>
+            <p data-lang="zh">如果您对本协议有任何疑问，请通过以下方式联系我们：
+邮箱：jorykk11@icloud.com</p>
+        </div>
+
+        <footer>
+            <p data-lang="en">© 2025 JoryKK. All rights reserved.</p>
+            <p data-lang="zh">© 2025 JoryKK. 保留所有权利。</p>
+        </footer>
+    </div>
+
+    <script>
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('zh')) {
+                return 'zh';
+            }
+            return 'en';
+        }
+
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferredLang') || detectLanguage();
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.classList.contains('lang-btn') || el.classList.contains('lang-option') || el.id === 'langToggleBtn' || el.id === 'currentLangText') return;
+                el.style.display = 'none';
+            });
+            switchLang(savedLang);
+        }
+
+        const langNames = {
+            'en': 'English',
+            'zh': '中文'
+        };
+
+        function openLangModal() {
+            document.getElementById('langModal').classList.add('active');
+        }
+
+        function closeLangModal() {
+            document.getElementById('langModal').classList.remove('active');
+        }
+
+        function closeLangModalOnBackdrop(event) {
+            if (event.target.id === 'langModal') {
+                closeLangModal();
+            }
+        }
+
+        function selectLang(lang) {
+            switchLang(lang);
+            closeLangModal();
+        }
+
+        function switchLang(lang) {
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            const langBtn = document.getElementById('langToggleBtn');
+            if (langBtn) {
+                const currentLangText = document.getElementById('currentLangText');
+                if (currentLangText) {
+                    currentLangText.textContent = langNames[lang] || langNames['en'];
+                }
+            }
+            
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            const activeOption = document.querySelector(`.lang-option[data-lang="${lang}"]`);
+            if (activeOption) {
+                activeOption.classList.add('active');
+            }
+            
+            localStorage.setItem('preferredLang', lang);
+            
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.classList.contains('lang-btn') || el.classList.contains('lang-option') || el.id === 'langToggleBtn' || el.id === 'currentLangText') return;
+                
+                const elementLang = el.getAttribute('data-lang');
+                if (elementLang === lang) {
+                    const tagName = el.tagName;
+                    if (tagName === 'SPAN') {
+                        el.style.display = 'inline';
+                    } else {
+                        el.style.display = 'block';
+                    }
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initLanguage);
+        } else {
+            initLanguage();
+        }
+    </script>
+</body>
+</html>

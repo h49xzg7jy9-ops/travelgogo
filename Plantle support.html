@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plantle - 植男植女。科学养护植物，让每一株植物都茁壮成长。支持与帮助页面。">
+    <title data-lang="en">Support & Help - Plantle</title>
+    <title data-lang="zh">支持与帮助 - Plantle</title>
+    <link rel="icon" href="Plantle app-logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #34C759;
+            --secondary-color: #30D158;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --bg-color: #FFFFFF;
+            --bg-secondary: #F5F5F7;
+            --border-color: #D2D2D7;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #30D158;
+                --secondary-color: #34C759;
+                --text-primary: #F5F5F7;
+                --text-secondary: #86868B;
+                --bg-color: #1D1D1F;
+                --bg-secondary: #2C2C2E;
+                --border-color: #38383A;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .lang-switcher {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .lang-switcher button {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switcher button:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* 语言选择弹窗样式 */
+        .lang-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-modal.active {
+            display: flex;
+        }
+
+        .lang-modal-content {
+            background: var(--bg-color);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 300px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lang-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .lang-modal-header h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .lang-modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-modal-close:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .lang-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .lang-option {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .lang-option:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .lang-option.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .back-link {
+            margin-bottom: 30px;
+        }
+
+        .back-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .app-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: white;
+            border-radius: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(52, 199, 89, 0.15);
+            overflow: hidden;
+            border: 2px solid rgba(52, 199, 89, 0.1);
+        }
+
+        .app-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 21px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .app-store-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #34C759 0%, #30D158 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 32px;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 35px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px rgba(52, 199, 89, 0.35);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-store-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .app-store-button:hover::before {
+            left: 100%;
+        }
+
+        .app-store-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(52, 199, 89, 0.45);
+            background: linear-gradient(135deg, #30D158 0%, #34C759 100%);
+        }
+
+        .app-store-button:active {
+            transform: translateY(-1px) scale(1);
+            box-shadow: 0 4px 12px rgba(52, 199, 89, 0.35);
+        }
+
+        .app-store-icon {
+            width: 26px;
+            height: 26px;
+            display: inline-block;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .app-store-button {
+                padding: 13px 26px;
+                font-size: 16px;
+                margin-top: 25px;
+            }
+
+            .app-store-icon {
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        .section {
+            margin-bottom: 60px;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .contact-card {
+            background: var(--bg-secondary);
+            border-radius: 18px;
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 15px;
+            transition: opacity 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.7;
+        }
+
+        .faq-item {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 17px;
+            font-weight: 500;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .faq-question:hover {
+                background: rgba(255, 255, 255, 0.05);
+            }
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: var(--text-secondary);
+            font-size: 20px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 24px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 24px 20px;
+        }
+
+        .link-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .link-item {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            display: block;
+        }
+
+        .link-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .link-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .link-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .link-item:hover p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 60px;
+            margin-top: 80px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 16px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .contact-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button onclick="openLangModal()" class="lang-btn" id="langToggleBtn">
+                <span id="currentLangText">English</span> ▼
+            </button>
+        </div>
+
+        <!-- 语言选择弹窗 -->
+        <div class="lang-modal" id="langModal" onclick="closeLangModalOnBackdrop(event)">
+            <div class="lang-modal-content" onclick="event.stopPropagation()">
+                <div class="lang-modal-header">
+                    <h3 data-lang="en">Select Language</h3>
+                    <h3 data-lang="zh">选择语言</h3>
+                    <button class="lang-modal-close" onclick="closeLangModal()">×</button>
+                </div>
+                <div class="lang-options">
+                    <div class="lang-option" onclick="selectLang('en')" data-lang="en">English</div>
+                    <div class="lang-option" onclick="selectLang('zh')" data-lang="zh">中文</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html" data-lang="en">← Back</a>
+            <a href="index.html" data-lang="zh">← 返回</a>
+        </div>
+
+        <header>
+            <div class="app-logo">
+                <img src="Plantle app-logo.png" alt="Plantle">
+            </div>
+            <h1>Plantle</h1>
+            <p class="subtitle" data-lang="en">Care for plants scientifically, let every plant thrive</p>
+            <p class="subtitle" data-lang="zh">植男植女 - 科学养护植物，让每一株植物都茁壮成长</p>
+            
+            <a href="https://apps.apple.com/app/id6755604499" class="app-store-button" target="_blank" rel="noopener noreferrer">
+                <span class="app-store-icon"></span>
+                <span data-lang="en">Download on the App Store</span>
+                <span data-lang="zh">在 App Store 下载</span>
+            </a>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title" data-lang="en">Contact Us</h2>
+            <h2 class="section-title" data-lang="zh">联系我们</h2>
+            <div class="contact-card">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-info">
+                        <h3 data-lang="en">Email Support</h3>
+                        <h3 data-lang="zh">邮箱支持</h3>
+                        <a href="mailto:jorykk11@icloud.com">jorykk11@icloud.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div class="contact-info">
+                        <h3 data-lang="en">Response Time</h3>
+                        <h3 data-lang="zh">响应时间</h3>
+                        <p style="color: var(--text-secondary); font-size: 15px; margin: 0;" data-lang="en">We will respond to your feedback as soon as possible (usually within 1-3 business days)</p>
+                        <p style="color: var(--text-secondary); font-size: 15px; margin: 0;" data-lang="zh">我们会在收到您的反馈后尽快回复（通常在1-3个工作日内）</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title" data-lang="en">Frequently Asked Questions</h2>
+            <h2 class="section-title" data-lang="zh">常见问题</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span data-lang="en">How do I use the app?</span>
+                    <span data-lang="zh">如何使用应用？</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-lang="en">1. Add plants: Tap the "+" button, select a plant type or take a photo to identify the plant<br>
+                    2. Record care: Record watering, fertilizing, pruning and other care operations on the plant details page<br>
+                    3. View reminders: The app will intelligently remind you to care for your plants based on weather and plant characteristics<br>
+                    4. View history: View all historical care operations in the care records</p>
+                    <p data-lang="zh">1. 添加植物：点击"+"按钮，选择植物种类或拍照识别植物<br>
+                    2. 记录养护：在植物详情页面记录浇水、施肥、修剪等养护操作<br>
+                    3. 查看提醒：应用会根据天气和植物特性智能提醒您进行养护<br>
+                    4. 查看历史：在养护记录中查看所有历史养护操作</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span data-lang="en">How does the app identify plants?</span>
+                    <span data-lang="zh">应用如何识别植物？</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-lang="en">The app integrates plant identification functionality. You can identify plant species by taking photos or uploading plant photos. The identification results will provide basic information about the plant, including Chinese name, English name, scientific name, etc.</p>
+                    <p data-lang="zh">应用集成了植物识别功能，您可以通过拍照或上传植物照片来识别植物种类。识别结果会提供植物的基本信息，包括中文名、英文名、学名等。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span data-lang="en">How do care reminders work?</span>
+                    <span data-lang="zh">养护提醒是如何工作的？</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-lang="en">The app intelligently calculates the next care time based on the characteristics of the plants you add, local weather conditions, and the time of your last care. The system combines weather factors such as temperature and humidity to provide you with personalized care suggestions and reminders.</p>
+                    <p data-lang="zh">应用会根据您添加的植物特性、当地天气情况以及您上次养护的时间，智能计算下次养护的时间。系统会结合温度、湿度等天气因素，为您提供个性化的养护建议和提醒。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span data-lang="en">Will my data sync to the cloud?</span>
+                    <span data-lang="zh">我的数据会同步到云端吗？</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-lang="en">The app supports iCloud cloud backup. You can enable cloud backup in settings, so your plant data and care records will automatically sync to iCloud, making it easy to sync across multiple devices.</p>
+                    <p data-lang="zh">应用支持 iCloud 云备份功能。您可以在设置中开启云备份，这样您的植物数据和养护记录会自动同步到 iCloud，方便在多设备间同步。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span data-lang="en">How do I backup my plant data?</span>
+                    <span data-lang="zh">如何备份我的植物数据？</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-lang="en">You can backup data in two ways:<br>
+                    1. Enable iCloud cloud backup: Enable cloud backup in settings, and data will automatically sync to iCloud<br>
+                    2. Export data: You can export plant data through the app's share feature and save it to other locations</p>
+                    <p data-lang="zh">您可以通过两种方式备份数据：<br>
+                    1. 开启 iCloud 云备份：在设置中开启云备份功能，数据会自动同步到 iCloud<br>
+                    2. 导出数据：您可以通过应用的分享功能导出植物数据，保存到其他位置</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span data-lang="en">How do I report issues or suggest features?</span>
+                    <span data-lang="zh">如何报告问题或建议功能？</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-lang="en">If you encounter any issues or have feature suggestions, please email jorykk11@icloud.com. We will carefully consider your feedback.</p>
+                    <p data-lang="zh">如果您遇到任何问题或有功能建议，请发送邮件至 jorykk11@icloud.com，我们会认真考虑您的反馈。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title" data-lang="en">Features</h2>
+            <h2 class="section-title" data-lang="zh">功能特性</h2>
+            <div style="background: var(--bg-secondary); border-radius: 18px; padding: 32px;">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);" data-lang="en">Plant Identification</strong>
+                        <strong style="color: var(--text-primary);" data-lang="zh">植物识别</strong>
+                        <span data-lang="en">: Quickly identify plant species by taking photos</span>
+                        <span data-lang="zh">：通过拍照快速识别植物种类</span>
+                    </li>
+                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);" data-lang="en">Smart Care Reminders</strong>
+                        <strong style="color: var(--text-primary);" data-lang="zh">智能养护提醒</strong>
+                        <span data-lang="en">: Intelligent reminders based on weather and plant characteristics</span>
+                        <span data-lang="zh">：根据天气和植物特性智能提醒养护</span>
+                    </li>
+                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);" data-lang="en">Care Records</strong>
+                        <strong style="color: var(--text-primary);" data-lang="zh">养护记录</strong>
+                        <span data-lang="en">: Detailed records of each watering, fertilizing, pruning operation</span>
+                        <span data-lang="zh">：详细记录每次浇水、施肥、修剪等操作</span>
+                    </li>
+                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);" data-lang="en">Weather Awareness</strong>
+                        <strong style="color: var(--text-primary);" data-lang="zh">天气感知</strong>
+                        <span data-lang="en">: Provide care suggestions based on local weather conditions</span>
+                        <span data-lang="zh">：结合当地天气情况提供养护建议</span>
+                    </li>
+                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);" data-lang="en">Plant Database</strong>
+                        <strong style="color: var(--text-primary);" data-lang="zh">植物信息库</strong>
+                        <span data-lang="en">: Contains detailed care information for 41 common plants</span>
+                        <span data-lang="zh">：包含41种常见植物的详细养护信息</span>
+                    </li>
+                    <li style="margin-bottom: 0; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);" data-lang="en">iCloud Cloud Backup</strong>
+                        <strong style="color: var(--text-primary);" data-lang="zh">iCloud 云备份</strong>
+                        <span data-lang="en">: Automatic data sync, multi-device access</span>
+                        <span data-lang="zh">：数据自动同步，多设备访问</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title" data-lang="en">Related Links</h2>
+            <h2 class="section-title" data-lang="zh">相关链接</h2>
+            <div class="link-card">
+                <a href="Plantle privacy.html" class="link-item">
+                    <h3 data-lang="en">Privacy Policy</h3>
+                    <h3 data-lang="zh">隐私政策</h3>
+                    <p data-lang="en">Learn how we protect your privacy</p>
+                    <p data-lang="zh">了解我们如何保护您的隐私</p>
+                </a>
+                <a href="Plantle agreement.html" class="link-item">
+                    <h3 data-lang="en">Terms of Service</h3>
+                    <h3 data-lang="zh">用户协议</h3>
+                    <p data-lang="en">Read the terms of service</p>
+                    <p data-lang="zh">阅读服务使用条款</p>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p data-lang="en">© 2025 JoryKK. All rights reserved.</p>
+            <p data-lang="zh">© 2025 JoryKK. 保留所有权利。</p>
+        </footer>
+    </div>
+
+    <script>
+        // 检测浏览器语言并设置默认语言
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('zh')) {
+                return 'zh';
+            }
+            return 'en';
+        }
+
+        // 初始化语言
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferredLang') || detectLanguage();
+            // 先隐藏所有语言内容，然后显示选中的语言
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.classList.contains('lang-btn') || el.classList.contains('lang-option') || el.id === 'langToggleBtn' || el.id === 'currentLangText') return;
+                el.style.display = 'none';
+            });
+            switchLang(savedLang);
+        }
+
+        const langNames = {
+            'en': 'English',
+            'zh': '中文'
+        };
+
+        function openLangModal() {
+            document.getElementById('langModal').classList.add('active');
+        }
+
+        function closeLangModal() {
+            document.getElementById('langModal').classList.remove('active');
+        }
+
+        function closeLangModalOnBackdrop(event) {
+            if (event.target.id === 'langModal') {
+                closeLangModal();
+            }
+        }
+
+        function selectLang(lang) {
+            switchLang(lang);
+            closeLangModal();
+        }
+
+        // 切换语言
+        function switchLang(lang) {
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            // 更新语言按钮文本
+            const langBtn = document.getElementById('langToggleBtn');
+            if (langBtn) {
+                const currentLangText = document.getElementById('currentLangText');
+                if (currentLangText) {
+                    currentLangText.textContent = langNames[lang] || langNames['en'];
+                }
+            }
+            
+            // 更新弹窗中的选中状态
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            const activeOption = document.querySelector(`.lang-option[data-lang="${lang}"]`);
+            if (activeOption) {
+                activeOption.classList.add('active');
+            }
+            
+            // 保存语言偏好
+            localStorage.setItem('preferredLang', lang);
+            
+            // 显示/隐藏对应语言的内容
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                // 跳过按钮本身和弹窗元素
+                if (el.classList.contains('lang-btn') || el.classList.contains('lang-option') || el.id === 'langToggleBtn' || el.id === 'currentLangText') return;
+                
+                const elementLang = el.getAttribute('data-lang');
+                if (elementLang === lang) {
+                    // 根据元素类型设置正确的 display
+                    const tagName = el.tagName;
+                    if (tagName === 'SPAN') {
+                        el.style.display = 'inline';
+                    } else if (tagName === 'A') {
+                        el.style.display = 'block';
+                    } else {
+                        el.style.display = 'block';
+                    }
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        }
+
+        // FAQ 折叠功能
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // 关闭所有其他 FAQ
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // 切换当前 FAQ
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // 页面加载时初始化语言
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initLanguage);
+        } else {
+            initLanguage();
+        }
+    </script>
+</body>
+</html>
+

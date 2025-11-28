@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plantle Privacy Policy">
+    <title data-lang="en">Privacy Policy - Plantle</title>
+    <title data-lang="zh">隐私政策 - Plantle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #34C759;
+            --secondary-color: #30D158;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --bg-color: #FFFFFF;
+            --bg-secondary: #F5F5F7;
+            --border-color: #D2D2D7;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #30D158;
+                --secondary-color: #34C759;
+                --text-primary: #F5F5F7;
+                --text-secondary: #86868B;
+                --bg-color: #1D1D1F;
+                --bg-secondary: #2C2C2E;
+                --border-color: #38383A;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .lang-switcher {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .lang-switcher button {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switcher button:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .lang-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-modal.active {
+            display: flex;
+        }
+
+        .lang-modal-content {
+            background: var(--bg-color);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 300px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lang-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .lang-modal-header h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .lang-modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-modal-close:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .lang-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .lang-option {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .lang-option:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .lang-option.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .back-link {
+            margin-bottom: 30px;
+        }
+
+        .back-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            white-space: pre-line;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 60px;
+            margin-top: 80px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button onclick="openLangModal()" class="lang-btn" id="langToggleBtn">
+                <span id="currentLangText">English</span> ▼
+            </button>
+        </div>
+
+        <!-- 语言选择弹窗 -->
+        <div class="lang-modal" id="langModal" onclick="closeLangModalOnBackdrop(event)">
+            <div class="lang-modal-content" onclick="event.stopPropagation()">
+                <div class="lang-modal-header">
+                    <h3 data-lang="en">Select Language</h3>
+                    <h3 data-lang="zh">选择语言</h3>
+                    <button class="lang-modal-close" onclick="closeLangModal()">×</button>
+                </div>
+                <div class="lang-options">
+                    <div class="lang-option" onclick="selectLang('en')" data-lang="en">English</div>
+                    <div class="lang-option" onclick="selectLang('zh')" data-lang="zh">中文</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html" data-lang="en">← Back</a>
+            <a href="index.html" data-lang="zh">← 返回</a>
+        </div>
+
+        <h1 data-lang="en">Privacy Policy</h1>
+        <h1 data-lang="zh">隐私政策</h1>
+        <p class="last-updated" data-lang="en">Last updated: November 21, 2025</p>
+        <p class="last-updated" data-lang="zh">最后更新：2025年11月21日</p>
+
+        <div class="section">
+            <h2 data-lang="en">1. Information Collection</h2>
+            <h2 data-lang="zh">1. 信息收集</h2>
+            <p data-lang="en">We take your privacy very seriously. [Plantle] only collects plant information and care records that you actively provide. We do not collect your personal identity information. All data is stored only on your device locally or in your iCloud account if you actively enable it.</p>
+            <p data-lang="zh">我们非常重视您的隐私。【植男植女】仅收集您主动提供的植物信息和养护记录。我们不会收集您的个人身份信息。所有数据仅存储在您的设备本地或您主动启用的 iCloud 账户中。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">2. Data Usage</h2>
+            <h2 data-lang="zh">2. 数据使用</h2>
+            <p data-lang="en">The data collected by the app is only used to provide plant care functions, including:
+- Providing you with personalized plant care suggestions
+- Intelligently reminding you to care for your plants based on weather conditions
+- Recording and managing your plant care history
+We will not use your data for any other purpose.</p>
+            <p data-lang="zh">应用收集的数据仅用于提供植物养护功能，包括：
+- 为您提供个性化的植物养护建议
+- 根据天气情况智能提醒您进行养护
+- 记录和管理您的植物养护历史
+我们不会将您的数据用于任何其他目的。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">3. Data Storage</h2>
+            <h2 data-lang="zh">3. 数据存储</h2>
+            <p data-lang="en">All data is stored locally on your device. If you enable iCloud cloud backup, data will sync to your iCloud account. This data is completely controlled by you, and we cannot access it. We will not transmit your data to any third-party servers.</p>
+            <p data-lang="zh">所有数据存储在您的设备本地。如果您启用了 iCloud 云备份功能，数据会同步到您的 iCloud 账户，这些数据完全由您控制，我们无法访问。我们不会将数据传输到任何第三方服务器。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">4. Photo Permission</h2>
+            <h2 data-lang="zh">4. 照片权限</h2>
+            <p data-lang="en">The app needs access to your photo library and camera to add plant photos. These photos are only stored on your device or in your iCloud account, and we will not upload them to any server.</p>
+            <p data-lang="zh">应用需要访问您的相册和相机以添加植物照片。这些照片仅存储在您的设备上或您的 iCloud 账户中，我们不会上传到任何服务器。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">5. Location Permission</h2>
+            <h2 data-lang="zh">5. 位置权限</h2>
+            <p data-lang="en">The app may request location permission to obtain local weather information to provide you with more accurate care suggestions. Location information is only used to obtain weather data and will not be stored or uploaded to any server.</p>
+            <p data-lang="zh">应用可能会请求位置权限以获取当地天气信息，为您提供更准确的养护建议。位置信息仅用于获取天气数据，不会存储或上传到任何服务器。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">6. Notification Permission</h2>
+            <h2 data-lang="zh">6. 通知权限</h2>
+            <p data-lang="en">The app may send local notifications to remind you to care for your plants. You can turn off notifications at any time in settings. All notifications are local notifications and do not involve any server push.</p>
+            <p data-lang="zh">应用可能会发送本地通知来提醒您进行植物养护。您可以随时在设置中关闭通知。所有通知均为本地通知，不涉及任何服务器推送。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">7. Third-Party Services</h2>
+            <h2 data-lang="zh">7. 第三方服务</h2>
+            <p data-lang="en">This app may use the following third-party services:
+- Trefle API: Used for plant identification and information queries (only called when you use the identification feature)
+- Apple iCloud: Used for data backup and synchronization (only used when you actively enable it)
+We do not use any third-party analytics or advertising services.</p>
+            <p data-lang="zh">本应用可能使用以下第三方服务：
+- Trefle API：用于植物识别和信息查询（仅在您使用识别功能时调用）
+- Apple iCloud：用于数据备份和同步（仅在您主动启用时使用）
+我们不会使用任何第三方分析或广告服务。</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">8. Your Rights</h2>
+            <h2 data-lang="zh">8. 您的权利</h2>
+            <p data-lang="en">You can at any time:
+- Delete the app to clear all local data
+- Turn off iCloud cloud backup in settings
+- Revoke app permissions (photos, location, notifications, etc.) in system settings
+- Contact us via email to handle data-related issues</p>
+            <p data-lang="zh">您可以随时：
+- 删除应用以清除所有本地数据
+- 在设置中关闭 iCloud 云备份
+- 在系统设置中撤销应用的权限（照片、位置、通知等）
+- 通过邮件联系我们处理数据相关问题</p>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="en">9. Contact Us</h2>
+            <h2 data-lang="zh">9. 联系我们</h2>
+            <p data-lang="en">If you have any questions about this privacy policy, please contact us:
+Email: jorykk11@icloud.com</p>
+            <p data-lang="zh">如果您对本隐私政策有任何疑问，请通过以下方式联系我们：
+邮箱：jorykk11@icloud.com</p>
+        </div>
+
+        <footer>
+            <p data-lang="en">© 2025 JoryKK. All rights reserved.</p>
+            <p data-lang="zh">© 2025 JoryKK. 保留所有权利。</p>
+        </footer>
+    </div>
+
+    <script>
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('zh')) {
+                return 'zh';
+            }
+            return 'en';
+        }
+
+        function initLanguage() {
+            const savedLang = localStorage.getItem('preferredLang') || detectLanguage();
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.classList.contains('lang-btn') || el.classList.contains('lang-option') || el.id === 'langToggleBtn' || el.id === 'currentLangText') return;
+                el.style.display = 'none';
+            });
+            switchLang(savedLang);
+        }
+
+        const langNames = {
+            'en': 'English',
+            'zh': '中文'
+        };
+
+        function openLangModal() {
+            document.getElementById('langModal').classList.add('active');
+        }
+
+        function closeLangModal() {
+            document.getElementById('langModal').classList.remove('active');
+        }
+
+        function closeLangModalOnBackdrop(event) {
+            if (event.target.id === 'langModal') {
+                closeLangModal();
+            }
+        }
+
+        function selectLang(lang) {
+            switchLang(lang);
+            closeLangModal();
+        }
+
+        function switchLang(lang) {
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            const langBtn = document.getElementById('langToggleBtn');
+            if (langBtn) {
+                const currentLangText = document.getElementById('currentLangText');
+                if (currentLangText) {
+                    currentLangText.textContent = langNames[lang] || langNames['en'];
+                }
+            }
+            
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            const activeOption = document.querySelector(`.lang-option[data-lang="${lang}"]`);
+            if (activeOption) {
+                activeOption.classList.add('active');
+            }
+            
+            localStorage.setItem('preferredLang', lang);
+            
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.classList.contains('lang-btn') || el.classList.contains('lang-option') || el.id === 'langToggleBtn' || el.id === 'currentLangText') return;
+                
+                const elementLang = el.getAttribute('data-lang');
+                if (elementLang === lang) {
+                    const tagName = el.tagName;
+                    if (tagName === 'SPAN') {
+                        el.style.display = 'inline';
+                    } else {
+                        el.style.display = 'block';
+                    }
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initLanguage);
+        } else {
+            initLanguage();
+        }
+    </script>
+</body>
+</html>

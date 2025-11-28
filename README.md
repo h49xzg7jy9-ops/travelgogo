@@ -7,14 +7,19 @@
 本网站包含以下应用的支持页面：
 
 - **Travel gogo** - 旅行助手应用
-  - 支持页面：`travel gogo/support.html`
-  - 隐私政策：`travel gogo/privacy.html`
-  - 用户协议：`travel gogo/agreement.html`
+  - 支持页面：`Travel gogo support.html`
+  - 隐私政策：`Travel gogo privacy.html`
+  - 用户协议：`Travela gogo agreement.html`
 
 - **Guanxi Score** - 关系评估应用
-  - 支持页面：`guanxi/support.html`
-  - 隐私政策：`guanxi/privacy.html`
-  - 用户协议：`guanxi/agreement.html`
+  - 支持页面：`Guanxi support.html`
+  - 隐私政策：`Guanxi privacy.html`
+  - 用户协议：`Guanxi agreement.html`
+
+- **Plantle** - 植男植女，植物管理应用
+  - 支持页面：`Plantle support.html`
+  - 隐私政策：`Plantle privacy.html`
+  - 用户协议：`Plantle agreement.html`
 
 - **首页**：`index.html` - 应用中心首页
 
@@ -124,7 +129,12 @@ git push -u origin main
 ### Guanxi Score
 - 进入应用页面
 - 找到 "App Information" → "Support URL"
-- 填写：`https://jorykk.top/guanxi/support.html`
+- 填写：`https://jorykk.top/Guanxi%20support.html`
+
+### Plantle
+- 进入应用页面
+- 找到 "App Information" → "Support URL"
+- 填写：`https://jorykk.top/Plantle%20support.html`
 
 ## 注意事项
 
@@ -140,6 +150,7 @@ git push -u origin main
 
 ## 更新日志
 
-- 2025年：初始版本，包含 Travel gogo 和 Guanxi Score 两个应用的支持页面
+- 2025年11月：初始版本，包含 Travel gogo 和 Guanxi Score 两个应用的支持页面
 - 已更新所有超链接路径，确保网站正常运行
 - 已配置 CNAME 文件，支持自定义域名 jorykk.top
+- 2025年11月21日：新增 Plantle（植男植女）应用的支持页面、隐私政策和用户协议
