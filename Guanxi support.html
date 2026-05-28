@@ -380,13 +380,38 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="assets/site-common.css">
 </head>
-<body>
-    <div class="container">
-        <div class="back-link">
-            <a href="index.html">← 返回</a>
+<body class="site-page">
+    <header class="jory-topbar" aria-label="站点导航">
+        <div class="jory-topbar-inner">
+            <a class="jory-brand" href="index.html">JoryKK</a>
+            <nav class="jory-nav-links" aria-label="主导航">
+                <a class="jory-nav-link jory-home-link" href="index.html">首页</a>
+                <div class="jory-products" data-jory-products>
+                    <button class="jory-products-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="jory-products-menu">产品</button>
+                    <div class="jory-products-menu" id="jory-products-menu">
+                        <a class="jory-product-link" href="Travel gogo support.html">
+                            <img src="Travela gogo app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Travel gogo</strong><small>旅行整理与行程支持</small></span>
+                        </a>
+                        <a class="jory-product-link" href="Guanxi support.html">
+                            <img src="Guanxi app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Guanxi Score</strong><small>关系记录与状态观察</small></span>
+                        </a>
+                        <a class="jory-product-link" href="Plantle support.html">
+                            <img src="Plantle app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Plantle</strong><small>植物养护与生长记录</small></span>
+                        </a>
+                    </div>
+                </div>
+                <a class="jory-nav-link" href="index.html#profile">关于我</a>
+                <a class="jory-nav-link" href="index.html#experience">履历</a>
+                <a class="jory-nav-link" href="index.html#principles">方法</a>
+            </nav>
         </div>
-
+    </header>
+    <div class="container">
         <header>
             <div class="app-logo">
                 <img src="Guanxi app-logo.png" alt="Guanxi Score">
@@ -401,17 +426,60 @@
         </header>
 
         <section class="section">
+            <h2 class="section-title">产品介绍</h2>
+            <div class="product-copy-panel">
+                <p>Guanxi Score 是一款关系自评与记录工具，帮助用户从伴侣、亲人、朋友、同事等不同关系场景出发，用结构化维度观察关系状态。它不替你给一段关系下结论，而是把模糊感受整理成可以回看、比较和复盘的记录。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">开发初衷</h2>
+            <div class="product-copy-panel">
+                <p>很多关系里的压力并不来自单一事件，而是来自长期累积的沟通、信任、支持和边界感变化。Guanxi Score 的开发初衷，是提供一个安静、理性的自我观察工具，让用户在情绪之外，也能看到关系中值得珍惜和需要调整的部分。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">功能介绍</h2>
+            <div style="background: var(--bg-secondary); border-radius: 18px; padding: 32px;">
+                <p class="product-feature-lead">Guanxi Score 围绕“评估、理解、记录、回看”四个动作展开，让一次关系自测不只是一个分数，也能成为后续沟通和自我调整的参考。</p>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);">科学评估体系</strong>：基于心理学和关系科学的多个维度进行评估
+                    </li>
+                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);">百分制评分</strong>：直观的0-100分关系分数
+                    </li>
+                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);">维度分析</strong>：详细展示各个维度的得分情况
+                    </li>
+                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);">多关系类型支持</strong>：支持伴侣、亲人、朋友、同事四种关系类型的评估
+                    </li>
+                    <li style="margin-bottom: 0; padding-left: 28px; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
+                        <strong style="color: var(--text-primary);">历史记录</strong>：保存您的评估记录，追踪关系变化
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
             <h2 class="section-title">联系我们</h2>
             <div class="contact-card">
                 <div class="contact-item">
-                    <div class="contact-icon">📧</div>
+                    <div class="contact-icon">@</div>
                     <div class="contact-info">
                         <h3>邮箱支持</h3>
                         <a href="mailto:jorykk11@icloud.com">jorykk11@icloud.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">⏰</div>
+                    <div class="contact-icon">1-3</div>
                     <div class="contact-info">
                         <h3>响应时间</h3>
                         <p style="color: var(--text-secondary); font-size: 15px; margin: 0;">我们会在收到您的反馈后尽快回复（通常在1-3个工作日内）</p>
@@ -487,34 +555,6 @@
         </section>
 
         <section class="section">
-            <h2 class="section-title">功能特性</h2>
-            <div style="background: var(--bg-secondary); border-radius: 18px; padding: 32px;">
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);">科学评估体系</strong>：基于心理学和关系科学的多个维度进行评估
-                    </li>
-                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);">百分制评分</strong>：直观的0-100分关系分数
-                    </li>
-                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);">维度分析</strong>：详细展示各个维度的得分情况
-                    </li>
-                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);">多关系类型支持</strong>：支持伴侣、亲人、朋友、同事四种关系类型的评估
-                    </li>
-                    <li style="margin-bottom: 0; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);">历史记录</strong>：保存您的评估记录，追踪关系变化
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
             <h2 class="section-title">相关链接</h2>
             <div class="link-card">
                 <a href="Guanxi privacy.html" class="link-item">
@@ -552,5 +592,6 @@
             });
         });
     </script>
+    <script src="assets/site-common.js"></script>
 </body>
 </html>

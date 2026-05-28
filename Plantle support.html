@@ -509,8 +509,37 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="assets/site-common.css">
 </head>
-<body>
+<body class="site-page">
+    <header class="jory-topbar" aria-label="站点导航">
+        <div class="jory-topbar-inner">
+            <a class="jory-brand" href="index.html">JoryKK</a>
+            <nav class="jory-nav-links" aria-label="主导航">
+                <a class="jory-nav-link jory-home-link" href="index.html">首页</a>
+                <div class="jory-products" data-jory-products>
+                    <button class="jory-products-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="jory-products-menu">产品</button>
+                    <div class="jory-products-menu" id="jory-products-menu">
+                        <a class="jory-product-link" href="Travel gogo support.html">
+                            <img src="Travela gogo app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Travel gogo</strong><small>旅行整理与行程支持</small></span>
+                        </a>
+                        <a class="jory-product-link" href="Guanxi support.html">
+                            <img src="Guanxi app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Guanxi Score</strong><small>关系记录与状态观察</small></span>
+                        </a>
+                        <a class="jory-product-link" href="Plantle support.html">
+                            <img src="Plantle app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Plantle</strong><small>植物养护与生长记录</small></span>
+                        </a>
+                    </div>
+                </div>
+                <a class="jory-nav-link" href="index.html#profile">关于我</a>
+                <a class="jory-nav-link" href="index.html#experience">履历</a>
+                <a class="jory-nav-link" href="index.html#principles">方法</a>
+            </nav>
+        </div>
+    </header>
     <div class="container">
         <div class="lang-switcher">
             <button onclick="openLangModal()" class="lang-btn" id="langToggleBtn">
@@ -533,11 +562,6 @@
             </div>
         </div>
 
-        <div class="back-link">
-            <a href="index.html" data-lang="en">← Back</a>
-            <a href="index.html" data-lang="zh">← 返回</a>
-        </div>
-
         <header>
             <div class="app-logo">
                 <img src="Plantle app-logo.png" alt="Plantle">
@@ -554,11 +578,73 @@
         </header>
 
         <section class="section">
+            <h2 class="section-title" data-lang="en">Product Introduction</h2>
+            <h2 class="section-title" data-lang="zh">产品介绍</h2>
+            <div class="product-copy-panel">
+                <p data-lang="en">Plantle is a plant care companion for houseplant owners. It combines plant identification, care records, weather-aware reminders, and a plant knowledge base so each plant has a clear care rhythm.</p>
+                <p data-lang="zh">Plantle 是面向家庭绿植和盆栽爱好者的养护助手。它把植物识别、养护记录、天气提醒和植物知识库放在一起，让每一株植物都有清晰的照护节奏。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title" data-lang="en">Why We Built It</h2>
+            <h2 class="section-title" data-lang="zh">开发初衷</h2>
+            <div class="product-copy-panel">
+                <p data-lang="en">Many care problems start from uncertainty: not knowing a plant's name, forgetting the last watering time, or missing how weather changes care needs. Plantle was built to make plant care less dependent on memory and more like a gentle daily routine.</p>
+                <p data-lang="zh">很多养护问题并不是“不用心”，而是记不清植物叫什么、上次何时浇水、天气变化后要不要调整。Plantle 的开发初衷，是让养植物少一点凭感觉，多一点可追踪、可提醒的日常节奏。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title" data-lang="en">Feature Introduction</h2>
+            <h2 class="section-title" data-lang="zh">功能介绍</h2>
+            <div class="product-feature-panel plantle-feature-panel">
+                <p class="product-feature-lead" data-lang="en">Plantle organizes plant care into three clear actions: reminders, records, and plant lookup. Build a profile for each plant, follow care reminders, and search both the local library and the Trefle online database when needed.</p>
+                <p class="product-feature-lead" data-lang="zh">Plantle 把植物养护整理成三件清楚的事：提醒、记录、查询。你可以为每株植物建立档案，按养护记录接收提醒，也可以在本地库和 Trefle 在线库中查找植物资料。</p>
+                <ul class="plantle-feature-list">
+                    <li class="plantle-feature-item">
+                        <span class="plantle-feature-check" aria-hidden="true">✓</span>
+                        <div class="plantle-feature-copy" data-lang="en">
+                            <strong>Smart Care Reminders</strong>
+                            <span>Get reminders based on plant characteristics and recent care records, so daily tasks are easier to keep up with.</span>
+                        </div>
+                        <div class="plantle-feature-copy" data-lang="zh">
+                            <strong>智能养护提醒</strong>
+                            <span>根据植物特性与最近养护记录，提示浇水、施肥、修剪等日常事项。</span>
+                        </div>
+                    </li>
+                    <li class="plantle-feature-item">
+                        <span class="plantle-feature-check" aria-hidden="true">✓</span>
+                        <div class="plantle-feature-copy" data-lang="en">
+                            <strong>Care Records</strong>
+                            <span>Record watering, fertilizing, pruning, and notes for each plant, then review its care history over time.</span>
+                        </div>
+                        <div class="plantle-feature-copy" data-lang="zh">
+                            <strong>养护记录</strong>
+                            <span>记录每次浇水、施肥、修剪和备注，方便回看植物状态变化。</span>
+                        </div>
+                    </li>
+                    <li class="plantle-feature-item">
+                        <span class="plantle-feature-check" aria-hidden="true">✓</span>
+                        <div class="plantle-feature-copy" data-lang="en">
+                            <strong>211-Plant Local Library and Trefle Online Search</strong>
+                            <span>The local library covers 211 plants with growing factors, pet toxicity, and care notes. When online, you can continue searching the Trefle plant database.</span>
+                        </div>
+                        <div class="plantle-feature-copy" data-lang="zh">
+                            <strong>211种本地植物库与 Trefle 在线查询</strong>
+                            <span>本地库覆盖211种植物，包含种植五要素（光、温、水、土、气）、宠物毒性、养护注意事项等信息；联网时可继续查询 Trefle 在线植物库。</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
             <h2 class="section-title" data-lang="en">Contact Us</h2>
             <h2 class="section-title" data-lang="zh">联系我们</h2>
             <div class="contact-card">
                 <div class="contact-item">
-                    <div class="contact-icon">📧</div>
+                    <div class="contact-icon">@</div>
                     <div class="contact-info">
                         <h3 data-lang="en">Email Support</h3>
                         <h3 data-lang="zh">邮箱支持</h3>
@@ -566,7 +652,7 @@
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">⏰</div>
+                    <div class="contact-icon">1-3</div>
                     <div class="contact-info">
                         <h3 data-lang="en">Response Time</h3>
                         <h3 data-lang="zh">响应时间</h3>
@@ -661,57 +747,6 @@
                     <p data-lang="en">If you encounter any issues or have feature suggestions, please email jorykk11@icloud.com. We will carefully consider your feedback.</p>
                     <p data-lang="zh">如果您遇到任何问题或有功能建议，请发送邮件至 jorykk11@icloud.com，我们会认真考虑您的反馈。</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title" data-lang="en">Features</h2>
-            <h2 class="section-title" data-lang="zh">功能特性</h2>
-            <div style="background: var(--bg-secondary); border-radius: 18px; padding: 32px;">
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);" data-lang="en">Plant Identification</strong>
-                        <strong style="color: var(--text-primary);" data-lang="zh">植物识别</strong>
-                        <span data-lang="en">: Quickly identify plant species by taking photos</span>
-                        <span data-lang="zh">：通过拍照快速识别植物种类</span>
-                    </li>
-                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);" data-lang="en">Smart Care Reminders</strong>
-                        <strong style="color: var(--text-primary);" data-lang="zh">智能养护提醒</strong>
-                        <span data-lang="en">: Intelligent reminders based on weather and plant characteristics</span>
-                        <span data-lang="zh">：根据天气和植物特性智能提醒养护</span>
-                    </li>
-                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);" data-lang="en">Care Records</strong>
-                        <strong style="color: var(--text-primary);" data-lang="zh">养护记录</strong>
-                        <span data-lang="en">: Detailed records of each watering, fertilizing, pruning operation</span>
-                        <span data-lang="zh">：详细记录每次浇水、施肥、修剪等操作</span>
-                    </li>
-                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);" data-lang="en">Weather Awareness</strong>
-                        <strong style="color: var(--text-primary);" data-lang="zh">天气感知</strong>
-                        <span data-lang="en">: Provide care suggestions based on local weather conditions</span>
-                        <span data-lang="zh">：结合当地天气情况提供养护建议</span>
-                    </li>
-                    <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);" data-lang="en">Plant Database</strong>
-                        <strong style="color: var(--text-primary);" data-lang="zh">植物信息库</strong>
-                        <span data-lang="en">: Contains detailed care information for 41 common plants</span>
-                        <span data-lang="zh">：包含41种常见植物的详细养护信息</span>
-                    </li>
-                    <li style="margin-bottom: 0; padding-left: 28px; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color); font-size: 20px;">✓</span>
-                        <strong style="color: var(--text-primary);" data-lang="en">iCloud Cloud Backup</strong>
-                        <strong style="color: var(--text-primary);" data-lang="zh">iCloud 云备份</strong>
-                        <span data-lang="en">: Automatic data sync, multi-device access</span>
-                        <span data-lang="zh">：数据自动同步，多设备访问</span>
-                    </li>
-                </ul>
             </div>
         </section>
 
@@ -857,6 +892,6 @@
             initLanguage();
         }
     </script>
+    <script src="assets/site-common.js"></script>
 </body>
 </html>
-

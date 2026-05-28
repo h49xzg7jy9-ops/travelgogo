@@ -498,8 +498,37 @@
 
         /* 语言切换由 JavaScript 控制，不在这里设置默认样式 */
     </style>
+    <link rel="stylesheet" href="assets/site-common.css">
 </head>
-<body>
+<body class="site-page">
+    <header class="jory-topbar" aria-label="站点导航">
+        <div class="jory-topbar-inner">
+            <a class="jory-brand" href="index.html">JoryKK</a>
+            <nav class="jory-nav-links" aria-label="主导航">
+                <a class="jory-nav-link jory-home-link" href="index.html">首页</a>
+                <div class="jory-products" data-jory-products>
+                    <button class="jory-products-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="jory-products-menu">产品</button>
+                    <div class="jory-products-menu" id="jory-products-menu">
+                        <a class="jory-product-link" href="Travel gogo support.html">
+                            <img src="Travela gogo app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Travel gogo</strong><small>旅行整理与行程支持</small></span>
+                        </a>
+                        <a class="jory-product-link" href="Guanxi support.html">
+                            <img src="Guanxi app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Guanxi Score</strong><small>关系记录与状态观察</small></span>
+                        </a>
+                        <a class="jory-product-link" href="Plantle support.html">
+                            <img src="Plantle app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Plantle</strong><small>植物养护与生长记录</small></span>
+                        </a>
+                    </div>
+                </div>
+                <a class="jory-nav-link" href="index.html#profile">关于我</a>
+                <a class="jory-nav-link" href="index.html#experience">履历</a>
+                <a class="jory-nav-link" href="index.html#principles">方法</a>
+            </nav>
+        </div>
+    </header>
     <div class="container">
         <div class="lang-switcher">
             <button onclick="openLangModal()" class="lang-btn" id="langToggleBtn">
@@ -599,6 +628,187 @@
         </header>
 
         <section class="section">
+            <h2 class="section-title" data-lang="en">Product Introduction</h2>
+            <h2 class="section-title" data-lang="zh">产品介绍</h2>
+            <h2 class="section-title" data-lang="ja">製品紹介</h2>
+            <h2 class="section-title" data-lang="ko">제품 소개</h2>
+            <h2 class="section-title" data-lang="es">Presentación del Producto</h2>
+            <h2 class="section-title" data-lang="fr">Présentation du Produit</h2>
+            <h2 class="section-title" data-lang="de">Produktvorstellung</h2>
+            <h2 class="section-title" data-lang="ru">Обзор продукта</h2>
+            <h2 class="section-title" data-lang="pt">Introdução do Produto</h2>
+            <h2 class="section-title" data-lang="vi">Giới thiệu sản phẩm</h2>
+            <h2 class="section-title" data-lang="th">แนะนำผลิตภัณฑ์</h2>
+            <h2 class="section-title" data-lang="ar">مقدمة المنتج</h2>
+            <h2 class="section-title" data-lang="zh-TW">產品介紹</h2>
+            <h2 class="section-title" data-lang="id">Pengenalan Produk</h2>
+            <div class="product-copy-panel">
+                <p data-lang="en">Travel gogo is a lightweight trip organizer that puts packing lists, itinerary planning, expense records, and trip notes in one place, helping each journey move from idea to departure with less chaos.</p>
+                <p data-lang="zh">Travel gogo 是一款轻量旅行整理工具，把打包清单、行程规划、费用记录和旅行备注放在一起，帮助每一次出发从想法变成清晰计划。</p>
+                <p data-lang="ja">Travel gogoは、持ち物リスト、旅程計画、費用記録、旅行メモを一か所にまとめる軽量な旅行整理アプリです。思いつきから出発までをよりスムーズにします。</p>
+                <p data-lang="ko">Travel gogo는 짐 목록, 일정 계획, 비용 기록, 여행 메모를 한곳에 모으는 가벼운 여행 정리 앱입니다. 여행 아이디어를 더 명확한 출발 계획으로 바꾸도록 돕습니다.</p>
+                <p data-lang="es">Travel gogo es un organizador de viajes ligero que reúne listas de equipaje, planificación de itinerarios, gastos y notas en un solo lugar para convertir cada idea de viaje en un plan claro.</p>
+                <p data-lang="fr">Travel gogo est un organiseur de voyage léger qui réunit listes de bagages, itinéraires, dépenses et notes au même endroit afin de transformer chaque envie de départ en plan clair.</p>
+                <p data-lang="de">Travel gogo ist ein schlanker Reiseplaner, der Packlisten, Routenplanung, Ausgaben und Notizen an einem Ort bündelt und jede Reiseidee zu einem klaren Plan macht.</p>
+                <p data-lang="ru">Travel gogo — это легкий органайзер поездок, который объединяет списки вещей, маршруты, расходы и заметки в одном месте, помогая превратить идею путешествия в понятный план.</p>
+                <p data-lang="pt">Travel gogo é um organizador de viagens leve que reúne listas de bagagem, roteiro, despesas e notas em um só lugar, ajudando cada viagem a sair da ideia para um plano claro.</p>
+                <p data-lang="vi">Travel gogo là công cụ tổ chức chuyến đi gọn nhẹ, gom danh sách hành lý, lịch trình, chi phí và ghi chú vào một nơi để mỗi chuyến đi trở thành một kế hoạch rõ ràng hơn.</p>
+                <p data-lang="th">Travel gogo คือเครื่องมือจัดระเบียบทริปแบบเบา ใช้รวมรายการจัดกระเป๋า แผนการเดินทาง ค่าใช้จ่าย และบันทึกไว้ในที่เดียว เพื่อเปลี่ยนไอเดียการเดินทางให้เป็นแผนที่ชัดเจน</p>
+                <p data-lang="ar">Travel gogo هو منظم سفر خفيف يجمع قوائم الأمتعة وتخطيط الرحلة وتسجيل المصاريف والملاحظات في مكان واحد، ليساعدك على تحويل فكرة السفر إلى خطة واضحة.</p>
+                <p data-lang="zh-TW">Travel gogo 是一款輕量旅行整理工具，把打包清單、行程規劃、費用記錄和旅行備註放在一起，幫助每一次出發從想法變成清晰計畫。</p>
+                <p data-lang="id">Travel gogo adalah pengatur perjalanan ringan yang menyatukan daftar bawaan, rencana itinerary, catatan biaya, dan catatan perjalanan agar setiap ide perjalanan menjadi rencana yang jelas.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title" data-lang="en">Why We Built It</h2>
+            <h2 class="section-title" data-lang="zh">开发初衷</h2>
+            <h2 class="section-title" data-lang="ja">開発のきっかけ</h2>
+            <h2 class="section-title" data-lang="ko">개발 배경</h2>
+            <h2 class="section-title" data-lang="es">Por Qué Lo Creamos</h2>
+            <h2 class="section-title" data-lang="fr">Pourquoi Nous l'avons Créé</h2>
+            <h2 class="section-title" data-lang="de">Warum Wir Es Entwickelt Haben</h2>
+            <h2 class="section-title" data-lang="ru">Зачем мы создали приложение</h2>
+            <h2 class="section-title" data-lang="pt">Por Que Criamos</h2>
+            <h2 class="section-title" data-lang="vi">Lý do phát triển</h2>
+            <h2 class="section-title" data-lang="th">แนวคิดในการพัฒนา</h2>
+            <h2 class="section-title" data-lang="ar">لماذا أنشأناه</h2>
+            <h2 class="section-title" data-lang="zh-TW">開發初衷</h2>
+            <h2 class="section-title" data-lang="id">Alasan Pengembangan</h2>
+            <div class="product-copy-panel">
+                <p data-lang="en">Travel planning often gets scattered across chats, screenshots, notes, maps, and memory. Travel gogo was built to make preparation visible, reusable, and easy to adjust, so the energy of a trip can stay on the experience itself.</p>
+                <p data-lang="zh">旅行准备常常散落在聊天记录、截图、备忘录、地图和记忆里，临出发才发现遗漏细节。Travel gogo 的开发初衷，是把准备过程变得可见、可复用、可随时调整，让旅行的精力更多留给体验本身。</p>
+                <p data-lang="ja">旅行の準備は、チャット、スクリーンショット、メモ、地図、記憶の中に散らばりがちです。Travel gogoは、準備を見える化し、再利用しやすく、いつでも調整できるようにするために作りました。</p>
+                <p data-lang="ko">여행 준비는 채팅, 스크린샷, 메모, 지도, 기억 속에 흩어지기 쉽습니다. Travel gogo는 준비 과정을 눈에 보이게 만들고, 다시 쓰기 쉽고, 언제든 조정할 수 있게 하려는 마음에서 만들었습니다.</p>
+                <p data-lang="es">La preparación de un viaje suele quedar repartida entre chats, capturas, notas, mapas y memoria. Travel gogo nació para hacer esa preparación visible, reutilizable y fácil de ajustar.</p>
+                <p data-lang="fr">La préparation d'un voyage se disperse souvent entre discussions, captures d'écran, notes, cartes et mémoire. Travel gogo a été créé pour rendre cette préparation visible, réutilisable et facile à ajuster.</p>
+                <p data-lang="de">Reisevorbereitung verteilt sich oft auf Chats, Screenshots, Notizen, Karten und Erinnerung. Travel gogo wurde entwickelt, um diese Vorbereitung sichtbar, wiederverwendbar und leicht anpassbar zu machen.</p>
+                <p data-lang="ru">Подготовка к поездке часто распадается на чаты, скриншоты, заметки, карты и память. Travel gogo создан, чтобы сделать подготовку видимой, повторно используемой и удобной для изменений.</p>
+                <p data-lang="pt">O preparo de uma viagem costuma ficar espalhado em conversas, capturas de tela, notas, mapas e memória. Travel gogo foi criado para tornar essa preparação visível, reutilizável e fácil de ajustar.</p>
+                <p data-lang="vi">Việc chuẩn bị du lịch thường bị phân tán trong tin nhắn, ảnh chụp màn hình, ghi chú, bản đồ và trí nhớ. Travel gogo được tạo ra để làm quá trình đó rõ ràng, tái sử dụng được và dễ điều chỉnh.</p>
+                <p data-lang="th">การเตรียมทริปมักกระจัดกระจายอยู่ในแชต ภาพหน้าจอ โน้ต แผนที่ และความจำ Travel gogo จึงถูกสร้างขึ้นเพื่อทำให้การเตรียมตัวมองเห็นได้ นำกลับมาใช้ซ้ำได้ และปรับแก้ได้ง่าย</p>
+                <p data-lang="ar">غالبا ما تتبعثر استعدادات السفر بين المحادثات ولقطات الشاشة والملاحظات والخرائط والذاكرة. أنشئ Travel gogo لجعل التحضير واضحا وقابلا لإعادة الاستخدام وسهل التعديل.</p>
+                <p data-lang="zh-TW">旅行準備常常散落在聊天記錄、截圖、備忘錄、地圖和記憶裡，臨出發才發現遺漏細節。Travel gogo 的開發初衷，是把準備過程變得可見、可複用、可隨時調整，讓旅行的精力更多留給體驗本身。</p>
+                <p data-lang="id">Persiapan perjalanan sering tersebar di chat, tangkapan layar, catatan, peta, dan ingatan. Travel gogo dibuat agar persiapan terlihat, bisa digunakan ulang, dan mudah disesuaikan.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title" data-lang="en">Feature Introduction</h2>
+            <h2 class="section-title" data-lang="zh">功能介绍</h2>
+            <h2 class="section-title" data-lang="ja">機能紹介</h2>
+            <h2 class="section-title" data-lang="ko">기능 소개</h2>
+            <h2 class="section-title" data-lang="es">Funciones Principales</h2>
+            <h2 class="section-title" data-lang="fr">Présentation des Fonctions</h2>
+            <h2 class="section-title" data-lang="de">Funktionsübersicht</h2>
+            <h2 class="section-title" data-lang="ru">Обзор функций</h2>
+            <h2 class="section-title" data-lang="pt">Introdução aos Recursos</h2>
+            <h2 class="section-title" data-lang="vi">Giới thiệu tính năng</h2>
+            <h2 class="section-title" data-lang="th">แนะนำฟีเจอร์</h2>
+            <h2 class="section-title" data-lang="ar">مقدمة الميزات</h2>
+            <h2 class="section-title" data-lang="zh-TW">功能介紹</h2>
+            <h2 class="section-title" data-lang="id">Pengenalan Fitur</h2>
+            <div class="product-feature-panel">
+                <p class="product-feature-lead" data-lang="en">Travel gogo follows the full travel workflow: prepare before departure, stay organized during the trip, and keep records that can be reviewed later.</p>
+                <p class="product-feature-lead" data-lang="zh">Travel gogo 围绕旅行前、中、后的完整流程设计：出发前准备清楚，旅途中随时查用，结束后还能整理回顾。</p>
+                <p class="product-feature-lead" data-lang="ja">Travel gogoは、出発前の準備、旅行中の確認、旅行後の振り返りまで、旅の流れ全体を支えます。</p>
+                <p class="product-feature-lead" data-lang="ko">Travel gogo는 출발 전 준비, 여행 중 확인, 여행 후 기록 정리까지 전체 여행 흐름을 중심으로 설계되었습니다.</p>
+                <p class="product-feature-lead" data-lang="es">Travel gogo cubre el flujo completo del viaje: preparar antes de salir, mantenerse organizado durante el viaje y revisar los registros después.</p>
+                <p class="product-feature-lead" data-lang="fr">Travel gogo suit tout le parcours du voyage: préparer avant le départ, rester organisé sur place et revoir les informations après.</p>
+                <p class="product-feature-lead" data-lang="de">Travel gogo begleitet den gesamten Reiseablauf: Vorbereitung vor der Abreise, Ordnung unterwegs und Rückblick nach der Reise.</p>
+                <p class="product-feature-lead" data-lang="ru">Travel gogo поддерживает весь цикл поездки: подготовку до отъезда, порядок в пути и записи для последующего просмотра.</p>
+                <p class="product-feature-lead" data-lang="pt">Travel gogo acompanha todo o fluxo da viagem: preparar antes da partida, manter tudo organizado durante a viagem e revisar os registros depois.</p>
+                <p class="product-feature-lead" data-lang="vi">Travel gogo đi theo toàn bộ quy trình du lịch: chuẩn bị trước khi đi, giữ mọi thứ gọn gàng trong chuyến đi và xem lại sau đó.</p>
+                <p class="product-feature-lead" data-lang="th">Travel gogo ออกแบบตามขั้นตอนการเดินทางทั้งหมด ตั้งแต่เตรียมตัวก่อนออกเดินทาง ใช้งานระหว่างทริป ไปจนถึงเก็บข้อมูลไว้ดูย้อนหลัง</p>
+                <p class="product-feature-lead" data-lang="ar">يتبع Travel gogo سير الرحلة كاملا: التحضير قبل الانطلاق، التنظيم أثناء السفر، وحفظ السجلات لمراجعتها لاحقا.</p>
+                <p class="product-feature-lead" data-lang="zh-TW">Travel gogo 圍繞旅行前、中、後的完整流程設計：出發前準備清楚，旅途中隨時查用，結束後還能整理回顧。</p>
+                <p class="product-feature-lead" data-lang="id">Travel gogo mengikuti alur perjalanan lengkap: persiapan sebelum berangkat, tetap rapi selama perjalanan, dan menyimpan catatan untuk ditinjau setelahnya.</p>
+                <ul class="product-feature-list">
+                    <li class="product-feature-item">
+                        <span data-lang="en"><strong>Trip profiles</strong>: Create trips with destinations, dates, notes, and key information.</span>
+                        <span data-lang="zh"><strong>旅行档案</strong>：按目的地、日期、备注和关键信息创建每一次旅行。</span>
+                        <span data-lang="ja"><strong>旅行プロフィール</strong>: 目的地、日程、メモ、重要情報をまとめて旅行を作成できます。</span>
+                        <span data-lang="ko"><strong>여행 프로필</strong>: 목적지, 날짜, 메모, 주요 정보를 모아 여행을 만들 수 있습니다.</span>
+                        <span data-lang="es"><strong>Perfiles de viaje</strong>: Cree viajes con destinos, fechas, notas e información clave.</span>
+                        <span data-lang="fr"><strong>Fiches de voyage</strong>: Créez des voyages avec destinations, dates, notes et informations clés.</span>
+                        <span data-lang="de"><strong>Reiseprofile</strong>: Erstellen Sie Reisen mit Ziel, Datum, Notizen und wichtigen Informationen.</span>
+                        <span data-lang="ru"><strong>Профили поездок</strong>: Создавайте поездки с направлениями, датами, заметками и важной информацией.</span>
+                        <span data-lang="pt"><strong>Perfis de viagem</strong>: Crie viagens com destinos, datas, notas e informações importantes.</span>
+                        <span data-lang="vi"><strong>Hồ sơ chuyến đi</strong>: Tạo chuyến đi với điểm đến, ngày tháng, ghi chú và thông tin quan trọng.</span>
+                        <span data-lang="th"><strong>โปรไฟล์ทริป</strong>: สร้างทริปพร้อมจุดหมาย วันที่ โน้ต และข้อมูลสำคัญ</span>
+                        <span data-lang="ar"><strong>ملفات الرحلات</strong>: أنشئ رحلات مع الوجهات والتواريخ والملاحظات والمعلومات المهمة.</span>
+                        <span data-lang="zh-TW"><strong>旅行檔案</strong>：按目的地、日期、備註和關鍵資訊建立每一次旅行。</span>
+                        <span data-lang="id"><strong>Profil perjalanan</strong>: Buat perjalanan dengan tujuan, tanggal, catatan, dan informasi penting.</span>
+                    </li>
+                    <li class="product-feature-item">
+                        <span data-lang="en"><strong>Packing lists</strong>: Organize items by category and mark what has already been packed.</span>
+                        <span data-lang="zh"><strong>打包清单</strong>：按类别整理物品，并标记已经准备好的内容。</span>
+                        <span data-lang="ja"><strong>持ち物リスト</strong>: カテゴリ別に荷物を整理し、準備済みの項目をチェックできます。</span>
+                        <span data-lang="ko"><strong>짐 목록</strong>: 항목을 카테고리별로 정리하고 이미 챙긴 것을 표시할 수 있습니다.</span>
+                        <span data-lang="es"><strong>Listas de equipaje</strong>: Organice artículos por categoría y marque lo que ya está preparado.</span>
+                        <span data-lang="fr"><strong>Listes de bagages</strong>: Classez les articles par catégorie et cochez ce qui est déjà prêt.</span>
+                        <span data-lang="de"><strong>Packlisten</strong>: Ordnen Sie Gegenstände nach Kategorien und markieren Sie, was bereits gepackt ist.</span>
+                        <span data-lang="ru"><strong>Списки вещей</strong>: Разделяйте вещи по категориям и отмечайте то, что уже собрано.</span>
+                        <span data-lang="pt"><strong>Listas de bagagem</strong>: Organize itens por categoria e marque o que já foi preparado.</span>
+                        <span data-lang="vi"><strong>Danh sách hành lý</strong>: Sắp xếp đồ theo danh mục và đánh dấu những món đã chuẩn bị.</span>
+                        <span data-lang="th"><strong>รายการจัดกระเป๋า</strong>: จัดของตามหมวดหมู่และทำเครื่องหมายของที่เตรียมแล้ว</span>
+                        <span data-lang="ar"><strong>قوائم الأمتعة</strong>: نظم الأغراض حسب الفئة وحدد ما تم تجهيزه.</span>
+                        <span data-lang="zh-TW"><strong>打包清單</strong>：按類別整理物品，並標記已經準備好的內容。</span>
+                        <span data-lang="id"><strong>Daftar bawaan</strong>: Atur barang berdasarkan kategori dan tandai yang sudah disiapkan.</span>
+                    </li>
+                    <li class="product-feature-item">
+                        <span data-lang="en"><strong>Itinerary planning</strong>: Arrange daily schedules, places, and notes so plans are easy to check on the road.</span>
+                        <span data-lang="zh"><strong>行程规划</strong>：整理每日安排、地点和备注，让旅途中随时能快速查看。</span>
+                        <span data-lang="ja"><strong>旅程計画</strong>: 毎日の予定、場所、メモを整理し、移動中でも確認しやすくします。</span>
+                        <span data-lang="ko"><strong>일정 계획</strong>: 매일의 일정, 장소, 메모를 정리해 여행 중에도 쉽게 확인할 수 있습니다.</span>
+                        <span data-lang="es"><strong>Planificación de itinerario</strong>: Organice horarios diarios, lugares y notas para consultar todo fácilmente durante el viaje.</span>
+                        <span data-lang="fr"><strong>Planification d'itinéraire</strong>: Organisez horaires, lieux et notes pour les consulter facilement en route.</span>
+                        <span data-lang="de"><strong>Routenplanung</strong>: Ordnen Sie Tagespläne, Orte und Notizen, damit alles unterwegs schnell abrufbar ist.</span>
+                        <span data-lang="ru"><strong>Планирование маршрута</strong>: Упорядочивайте ежедневные планы, места и заметки, чтобы легко проверять их в дороге.</span>
+                        <span data-lang="pt"><strong>Planejamento de roteiro</strong>: Organize horários, lugares e notas para consultar facilmente durante a viagem.</span>
+                        <span data-lang="vi"><strong>Lập lịch trình</strong>: Sắp xếp lịch hằng ngày, địa điểm và ghi chú để dễ xem khi đang di chuyển.</span>
+                        <span data-lang="th"><strong>วางแผนกำหนดการ</strong>: จัดตารางแต่ละวัน สถานที่ และโน้ตให้ดูได้ง่ายระหว่างเดินทาง</span>
+                        <span data-lang="ar"><strong>تخطيط المسار</strong>: رتب الجداول اليومية والأماكن والملاحظات ليسهل الرجوع إليها أثناء الرحلة.</span>
+                        <span data-lang="zh-TW"><strong>行程規劃</strong>：整理每日安排、地點和備註，讓旅途中隨時能快速查看。</span>
+                        <span data-lang="id"><strong>Perencanaan itinerary</strong>: Atur jadwal harian, tempat, dan catatan agar mudah dicek saat bepergian.</span>
+                    </li>
+                    <li class="product-feature-item">
+                        <span data-lang="en"><strong>Expense records</strong>: Record travel costs and review spending after the trip.</span>
+                        <span data-lang="zh"><strong>费用记录</strong>：记录旅途花费，方便结束后回看和整理支出。</span>
+                        <span data-lang="ja"><strong>費用記録</strong>: 旅行中の支出を記録し、旅行後に見直せます。</span>
+                        <span data-lang="ko"><strong>비용 기록</strong>: 여행 비용을 기록하고 여행 후 지출을 다시 확인할 수 있습니다.</span>
+                        <span data-lang="es"><strong>Registro de gastos</strong>: Registre los costos del viaje y revise los gastos al terminar.</span>
+                        <span data-lang="fr"><strong>Suivi des dépenses</strong>: Notez les coûts du voyage et revoyez les dépenses ensuite.</span>
+                        <span data-lang="de"><strong>Ausgaben</strong>: Erfassen Sie Reisekosten und überprüfen Sie die Ausgaben nach der Reise.</span>
+                        <span data-lang="ru"><strong>Учет расходов</strong>: Записывайте затраты и просматривайте расходы после поездки.</span>
+                        <span data-lang="pt"><strong>Registro de despesas</strong>: Registre os custos da viagem e revise os gastos depois.</span>
+                        <span data-lang="vi"><strong>Ghi chi phí</strong>: Ghi lại chi phí chuyến đi và xem lại sau khi kết thúc.</span>
+                        <span data-lang="th"><strong>บันทึกค่าใช้จ่าย</strong>: บันทึกค่าใช้จ่ายของทริปและตรวจดูย้อนหลังหลังจบการเดินทาง</span>
+                        <span data-lang="ar"><strong>سجلات المصاريف</strong>: سجل تكاليف السفر وراجع الإنفاق بعد الرحلة.</span>
+                        <span data-lang="zh-TW"><strong>費用記錄</strong>：記錄旅途花費，方便結束後回看和整理支出。</span>
+                        <span data-lang="id"><strong>Catatan biaya</strong>: Catat biaya perjalanan dan tinjau pengeluaran setelah perjalanan selesai.</span>
+                    </li>
+                    <li class="product-feature-item">
+                        <span data-lang="en"><strong>Sharing and export</strong>: Export or share trip information for backup, collaboration, or later review.</span>
+                        <span data-lang="zh"><strong>分享与导出</strong>：导出或分享旅行资料，方便备份、协作和后续复盘。</span>
+                        <span data-lang="ja"><strong>共有とエクスポート</strong>: 旅行情報を出力または共有し、バックアップや共同準備、振り返りに使えます。</span>
+                        <span data-lang="ko"><strong>공유와 내보내기</strong>: 여행 정보를 내보내거나 공유해 백업, 협업, 회고에 활용할 수 있습니다.</span>
+                        <span data-lang="es"><strong>Compartir y exportar</strong>: Exporte o comparta información del viaje para respaldo, colaboración o revisión posterior.</span>
+                        <span data-lang="fr"><strong>Partage et export</strong>: Exportez ou partagez les informations du voyage pour sauvegarde, collaboration ou revue ultérieure.</span>
+                        <span data-lang="de"><strong>Teilen und Export</strong>: Exportieren oder teilen Sie Reiseinformationen für Backup, Zusammenarbeit oder spätere Übersicht.</span>
+                        <span data-lang="ru"><strong>Обмен и экспорт</strong>: Экспортируйте или делитесь данными поездки для резервной копии, совместной подготовки или просмотра позже.</span>
+                        <span data-lang="pt"><strong>Compartilhar e exportar</strong>: Exporte ou compartilhe informações da viagem para backup, colaboração ou revisão futura.</span>
+                        <span data-lang="vi"><strong>Chia sẻ và xuất dữ liệu</strong>: Xuất hoặc chia sẻ thông tin chuyến đi để sao lưu, phối hợp hoặc xem lại sau.</span>
+                        <span data-lang="th"><strong>แชร์และส่งออก</strong>: ส่งออกหรือแชร์ข้อมูลทริปเพื่อสำรองข้อมูล ทำงานร่วมกัน หรือดูย้อนหลัง</span>
+                        <span data-lang="ar"><strong>المشاركة والتصدير</strong>: صدر أو شارك معلومات الرحلة للنسخ الاحتياطي أو التعاون أو المراجعة لاحقا.</span>
+                        <span data-lang="zh-TW"><strong>分享與匯出</strong>：匯出或分享旅行資料，方便備份、協作和後續複盤。</span>
+                        <span data-lang="id"><strong>Berbagi dan ekspor</strong>: Ekspor atau bagikan informasi perjalanan untuk cadangan, kolaborasi, atau tinjauan nanti.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
             <h2 class="section-title" data-lang="en">Contact Us</h2>
             <h2 class="section-title" data-lang="zh">联系我们</h2>
             <h2 class="section-title" data-lang="ja">お問い合わせ</h2>
@@ -615,7 +825,7 @@
             <h2 class="section-title" data-lang="id">Hubungi Kami</h2>
             <div class="contact-card">
                 <div class="contact-item">
-                    <div class="contact-icon">📧</div>
+                    <div class="contact-icon">@</div>
                     <div class="contact-info">
                         <h3 data-lang="en">Email Support</h3>
                         <h3 data-lang="zh">邮箱支持</h3>
@@ -635,7 +845,7 @@
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">⏰</div>
+                    <div class="contact-icon">1-3</div>
                     <div class="contact-info">
                         <h3 data-lang="en">Response Time</h3>
                         <h3 data-lang="zh">响应时间</h3>
@@ -1151,5 +1361,6 @@
             initLanguage();
         }
     </script>
+    <script src="assets/site-common.js"></script>
 </body>
 </html>

@@ -232,8 +232,37 @@
 
         /* 语言切换由 JavaScript 控制，不在这里设置默认样式 */
     </style>
+    <link rel="stylesheet" href="assets/site-common.css">
 </head>
-<body>
+<body class="site-page">
+    <header class="jory-topbar" aria-label="站点导航">
+        <div class="jory-topbar-inner">
+            <a class="jory-brand" href="index.html">JoryKK</a>
+            <nav class="jory-nav-links" aria-label="主导航">
+                <a class="jory-nav-link jory-home-link" href="index.html">首页</a>
+                <div class="jory-products" data-jory-products>
+                    <button class="jory-products-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="jory-products-menu">产品</button>
+                    <div class="jory-products-menu" id="jory-products-menu">
+                        <a class="jory-product-link" href="Travel gogo support.html">
+                            <img src="Travela gogo app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Travel gogo</strong><small>旅行整理与行程支持</small></span>
+                        </a>
+                        <a class="jory-product-link" href="Guanxi support.html">
+                            <img src="Guanxi app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Guanxi Score</strong><small>关系记录与状态观察</small></span>
+                        </a>
+                        <a class="jory-product-link" href="Plantle support.html">
+                            <img src="Plantle app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Plantle</strong><small>植物养护与生长记录</small></span>
+                        </a>
+                    </div>
+                </div>
+                <a class="jory-nav-link" href="index.html#profile">关于我</a>
+                <a class="jory-nav-link" href="index.html#experience">履历</a>
+                <a class="jory-nav-link" href="index.html#principles">方法</a>
+            </nav>
+        </div>
+    </header>
     <div class="container">
         <div class="lang-switcher">
             <button onclick="openLangModal()" class="lang-btn" id="langToggleBtn">
@@ -1155,6 +1184,7 @@ Email: jorykk11@icloud.com</p>
             initLanguage();
         }
     </script>
+    <script src="assets/site-common.js"></script>
 </body>
 </html>
 

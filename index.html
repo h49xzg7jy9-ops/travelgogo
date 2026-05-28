@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="应用中心 - Travel gogo, Guanxi Score & Plantle">
-    <title>应用中心</title>
+    <meta name="description" content="JoryKK - 独立开发者个人介绍与作品集，包含 Travel gogo、Guanxi Score 和 Plantle。">
+    <title>JoryKK - 独立开发者</title>
     <style>
         * {
             margin: 0;
@@ -13,142 +13,861 @@
         }
 
         :root {
-            --text-primary: #1D1D1F;
-            --text-secondary: #86868B;
-            --bg-color: #FFFFFF;
-            --bg-secondary: #F5F5F7;
-            --border-color: #D2D2D7;
+            --ink: #17201c;
+            --muted: #69736e;
+            --paper: #fbfaf6;
+            --soft: #efede5;
+            --line: #dad5c9;
+            --forest: #1f6b55;
+            --leaf: #3d9b72;
+            --amber: #c47b42;
+            --cream: #fffaf0;
+            --shadow: 0 18px 50px rgba(33, 45, 39, 0.12);
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --text-primary: #F5F5F7;
-                --text-secondary: #86868B;
-                --bg-color: #1D1D1F;
-                --bg-secondary: #2C2C2E;
-                --border-color: #38383A;
+                --ink: #f5f1e8;
+                --muted: #b7b0a4;
+                --paper: #151816;
+                --soft: #20251f;
+                --line: #3a403a;
+                --forest: #77c9a3;
+                --leaf: #95d8b6;
+                --amber: #e2a66f;
+                --cream: #1c211d;
+                --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
             }
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            min-width: 320px;
+            color: var(--ink);
+            background: var(--paper);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-color);
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 980px;
+        a {
+            color: inherit;
+        }
+
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 18px 32px;
+            color: #fffaf0;
+            background: linear-gradient(180deg, rgba(10, 14, 13, 0.72), rgba(10, 14, 13, 0));
+        }
+
+        .brand {
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 250, 240, 0.86);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: #ffffff;
+        }
+
+        .hero {
+            position: relative;
+            --hero-nav-safe-area: 68px;
+            min-height: 92dvh;
+            display: grid;
+            align-items: end;
+            overflow: hidden;
+            color: #fffaf0;
+            background: #111714;
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            top: var(--hero-nav-safe-area);
+            bottom: auto;
+            width: 100%;
+            height: calc(100% - var(--hero-nav-safe-area));
+            object-fit: cover;
+            object-position: center top;
+            filter: saturate(0.96) contrast(1.02);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            top: var(--hero-nav-safe-area);
+            background:
+                linear-gradient(90deg, rgba(9, 15, 13, 0.98) 0%, rgba(9, 15, 13, 0.92) 34%, rgba(9, 15, 13, 0.42) 62%, rgba(9, 15, 13, 0.12) 100%),
+                linear-gradient(0deg, rgba(9, 15, 13, 0.76) 0%, rgba(9, 15, 13, 0.08) 45%, rgba(9, 15, 13, 0.42) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(1180px, calc(100% - 48px));
             margin: 0 auto;
-            padding: 60px 20px;
-            text-align: center;
+            padding: 140px 0 72px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+            color: rgba(255, 250, 240, 0.78);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 36px;
+            height: 2px;
+            background: var(--amber);
         }
 
         h1 {
-            font-size: 48px;
-            font-weight: 600;
-            margin-bottom: 3rem;
+            max-width: 620px;
+            font-size: 58px;
+            line-height: 1.08;
+            font-weight: 780;
+            letter-spacing: 0;
+            overflow-wrap: anywhere;
         }
 
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .hero-copy {
+            max-width: 590px;
+            margin-top: 24px;
+            color: rgba(255, 250, 240, 0.82);
+            font-size: 18px;
         }
 
-        .app-card {
-            background: var(--bg-secondary);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .app-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px;
-            margin: 0 auto 1.5rem;
+        .hero-actions {
             display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 34px;
+        }
+
+        .button {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: white;
+            min-height: 46px;
+            padding: 0 18px;
+            border: 1px solid rgba(255, 250, 240, 0.24);
+            border-radius: 8px;
+            color: #fffaf0;
+            background: rgba(255, 250, 240, 0.12);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            backdrop-filter: blur(14px);
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-2px);
+            background: rgba(255, 250, 240, 0.2);
+            border-color: rgba(255, 250, 240, 0.44);
+        }
+
+        .button.primary {
+            color: #142019;
+            background: #fffaf0;
+            border-color: #fffaf0;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            width: min(680px, 100%);
+            margin-top: 54px;
+            border: 1px solid rgba(255, 250, 240, 0.18);
+            border-radius: 8px;
             overflow: hidden;
-            border: 2px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255, 250, 240, 0.16);
+            backdrop-filter: blur(18px);
         }
 
-        .app-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .metric {
+            min-height: 104px;
+            padding: 22px;
+            background: rgba(9, 15, 13, 0.34);
         }
 
-        .app-name {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
+        .metric strong {
+            display: block;
+            color: #ffffff;
+            font-size: 26px;
+            line-height: 1;
         }
 
-        .app-description {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.6;
+        .metric span {
+            display: block;
+            margin-top: 10px;
+            color: rgba(255, 250, 240, 0.74);
+            font-size: 13px;
         }
 
-        @media (max-width: 768px) {
+        main {
+            background: var(--paper);
+        }
+
+        .section {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 92px 0;
+        }
+
+        .section + .section {
+            border-top: 1px solid var(--line);
+        }
+
+        .section-kicker {
+            margin-bottom: 12px;
+            color: var(--forest);
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .section-title {
+            max-width: 780px;
+            font-size: 36px;
+            line-height: 1.18;
+            font-weight: 760;
+            letter-spacing: 0;
+        }
+
+        .section-lead {
+            max-width: 760px;
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        .profile-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+            gap: 64px;
+            align-items: start;
+        }
+
+        .profile-text p {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        .focus-panel {
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--cream);
+            box-shadow: var(--shadow);
+        }
+
+        .focus-panel h3 {
+            margin-bottom: 18px;
+            font-size: 20px;
+            letter-spacing: 0;
+        }
+
+        .focus-list {
+            display: grid;
+            gap: 14px;
+            list-style: none;
+        }
+
+        .focus-list li {
+            padding-left: 18px;
+            border-left: 3px solid var(--leaf);
+            color: var(--muted);
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1px;
+            margin-top: 38px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--line);
+        }
+
+        .timeline-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 28px;
+            padding: 28px;
+            background: var(--paper);
+        }
+
+        .timeline-year {
+            color: var(--forest);
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .timeline-row h3 {
+            font-size: 20px;
+            letter-spacing: 0;
+        }
+
+        .timeline-row p {
+            margin-top: 8px;
+            color: var(--muted);
+        }
+
+        .capabilities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .tag {
+            padding: 9px 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            color: var(--forest);
+            background: var(--cream);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 38px;
+        }
+
+        .product-card {
+            display: grid;
+            min-height: 330px;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            color: inherit;
+            background: var(--cream);
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .product-card:hover,
+        .product-card:focus-visible {
+            transform: translateY(-5px);
+            border-color: color-mix(in srgb, var(--forest), var(--line) 46%);
+            box-shadow: var(--shadow);
+        }
+
+        .product-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .product-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            object-fit: cover;
+            background: #ffffff;
+            box-shadow: 0 10px 26px rgba(28, 41, 35, 0.12);
+        }
+
+        .product-kind {
+            color: var(--amber);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .product-card h3 {
+            margin-top: 38px;
+            font-size: 24px;
+            letter-spacing: 0;
+        }
+
+        .product-card p {
+            margin-top: 12px;
+            color: var(--muted);
+        }
+
+        .product-link {
+            align-self: end;
+            margin-top: 28px;
+            color: var(--forest);
+            font-weight: 800;
+        }
+
+        .principles {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            margin-top: 38px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--line);
+        }
+
+        .principle {
+            padding: 30px;
+            background: var(--paper);
+        }
+
+        .principle h3 {
+            font-size: 19px;
+            letter-spacing: 0;
+        }
+
+        .principle p {
+            margin-top: 10px;
+            color: var(--muted);
+        }
+
+        .closing {
+            text-align: center;
+        }
+
+        .closing .section-title,
+        .closing .section-lead {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .closing-contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 28px;
+            padding: 14px 20px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--cream);
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .closing-email {
+            color: var(--forest);
+            font-weight: 800;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+
+        footer {
+            padding: 36px 24px 48px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            text-align: center;
+            background: var(--soft);
+            font-size: 14px;
+        }
+
+        @media (max-width: 940px) {
+            .site-nav {
+                padding: 16px 22px;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
             h1 {
-                font-size: 2rem;
-                margin-bottom: 2rem;
+                max-width: 520px;
+                font-size: 44px;
             }
 
-            .apps-grid {
+            .hero-copy {
+                max-width: 500px;
+            }
+
+            .hero-metrics {
+                width: min(560px, 100%);
+            }
+
+            .hero-content {
+                width: min(calc(100% - 36px), 760px);
+            }
+
+            .profile-layout,
+            .product-grid,
+            .principles {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
 
-            .app-card {
-                padding: 2rem;
+            .timeline-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .site-nav {
+                position: absolute;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                --hero-nav-safe-area: 62px;
+                min-height: auto;
+                display: block;
+                padding-top: calc(var(--hero-nav-safe-area) + clamp(300px, 48vh, 390px));
+            }
+
+            .hero-image {
+                top: var(--hero-nav-safe-area);
+                left: 0;
+                bottom: auto;
+                width: 100%;
+                height: clamp(300px, 48vh, 390px);
+                object-position: center top;
+            }
+
+            .hero::before {
+                top: var(--hero-nav-safe-area);
+                bottom: auto;
+                height: clamp(300px, 48vh, 390px);
+                background:
+                    linear-gradient(180deg, rgba(9, 15, 13, 0.18) 0%, rgba(9, 15, 13, 0.08) 44%, rgba(9, 15, 13, 0.98) 100%),
+                    linear-gradient(90deg, rgba(9, 15, 13, 0.34), rgba(9, 15, 13, 0.12));
+            }
+
+            .hero-content {
+                width: auto;
+                margin: 0 16px;
+                padding: 28px 0 36px;
+            }
+
+            .eyebrow {
+                margin-bottom: 18px;
+                font-size: 13px;
+            }
+
+            h1 {
+                font-size: 31px;
+                line-height: 1.15;
+            }
+
+            .hero-copy {
+                font-size: 16px;
+            }
+
+            h1,
+            .section-title,
+            .hero-copy,
+            .section-lead,
+            .profile-text p,
+            .focus-list li,
+            .timeline-row p,
+            .product-card p,
+            .principle p {
+                max-width: 100%;
+                overflow-wrap: anywhere;
+                word-break: break-all;
+                line-break: anywhere;
+            }
+
+            .hero-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr;
+                margin-top: 34px;
+            }
+
+            .metric {
+                min-height: auto;
+                padding: 18px;
+            }
+
+            .section {
+                width: auto;
+                margin: 0 16px;
+                padding: 64px 0;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .section-lead,
+            .profile-text p {
+                font-size: 16px;
+            }
+
+            .focus-panel,
+            .timeline-row,
+            .product-card,
+            .principle {
+                padding: 22px;
             }
         }
     </style>
+    <link rel="stylesheet" href="assets/site-common.css">
 </head>
-<body>
-    <div class="container">
-        <h1>欢迎使用</h1>
-        <div class="apps-grid">
-            <a href="Travel gogo support.html" class="app-card travelgogo">
-                <div class="app-icon">
-                    <img src="Travela gogo app-logo.png" alt="Travel gogo">
+<body class="site-home">
+    <header class="jory-topbar" aria-label="站点导航">
+        <div class="jory-topbar-inner">
+            <a class="jory-brand" href="index.html">JoryKK</a>
+            <nav class="jory-nav-links" aria-label="主导航">
+                <a class="jory-nav-link jory-home-link" href="index.html">首页</a>
+                <div class="jory-products" data-jory-products>
+                    <button class="jory-products-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="jory-products-menu">产品</button>
+                    <div class="jory-products-menu" id="jory-products-menu">
+                        <a class="jory-product-link" href="Travel gogo support.html">
+                            <img src="Travela gogo app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Travel gogo</strong><small>旅行整理与行程支持</small></span>
+                        </a>
+                        <a class="jory-product-link" href="Guanxi support.html">
+                            <img src="Guanxi app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Guanxi Score</strong><small>关系记录与状态观察</small></span>
+                        </a>
+                        <a class="jory-product-link" href="Plantle support.html">
+                            <img src="Plantle app-logo.png" alt="" aria-hidden="true">
+                            <span><strong>Plantle</strong><small>植物养护与生长记录</small></span>
+                        </a>
+                    </div>
                 </div>
-                <div class="app-name">Travel gogo</div>
-                <div class="app-description">您的旅行助手，让每一次旅程都充满惊喜</div>
-            </a>
-
-            <a href="Guanxi support.html" class="app-card guanxi">
-                <div class="app-icon">
-                    <img src="Guanxi app-logo.png" alt="Guanxi Score">
-                </div>
-                <div class="app-name">Guanxi Score</div>
-                <div class="app-description">科学评估你的人际关系，量化关系质量</div>
-            </a>
-
-            <a href="Plantle support.html" class="app-card plantle">
-                <div class="app-icon">
-                    <img src="Plantle app-logo.png" alt="Plantle">
-                </div>
-                <div class="app-name">Plantle</div>
-                <div class="app-description">植男植女 - 科学养护植物，让每一株植物都茁壮成长</div>
-            </a>
+                <a class="jory-nav-link" href="index.html#profile">关于我</a>
+                <a class="jory-nav-link" href="index.html#experience">履历</a>
+                <a class="jory-nav-link" href="index.html#principles">方法</a>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <section class="hero" aria-label="个人介绍">
+        <picture>
+            <source media="(min-width: 641px)" srcset="assets/images/developer-hero-wide.jpg">
+            <img class="hero-image" src="assets/images/developer-avatar-3d.jpg" alt="3D 动漫风格的独立开发者形象">
+        </picture>
+        <div class="hero-content">
+            <div class="eyebrow">独立开发者 / 内容与产品学习中</div>
+            <h1>
+                <span class="headline-line">Hi，我是 Jory。</span>
+                <span class="headline-line">我在做一些小而实用的 App。</span>
+            </h1>
+            <p class="hero-copy">
+                <span class="copy-line">过去几年，我在内容平台、节目制作和项目协作里，</span>
+                <span class="copy-line">练习把复杂信息整理成清楚的结构。</span>
+                <span class="copy-line">现在，我把这些经验慢慢用到独立开发里。</span>
+            </p>
+            <div class="hero-actions">
+                <a class="button primary" href="#apps">查看我的产品</a>
+                <a class="button" href="#profile">了解我的经历</a>
+            </div>
+            <div class="hero-metrics" aria-label="履历摘要">
+                <div class="metric">
+                    <strong>9 年</strong>
+                    <span>内容与运营相关经验</span>
+                </div>
+                <div class="metric">
+                    <strong>30+</strong>
+                    <span>参与过的活动与项目</span>
+                </div>
+                <div class="metric">
+                    <strong>3 款</strong>
+                    <span>正在维护的个人 App</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="section" id="apps">
+            <div class="section-kicker">Products</div>
+            <h2 class="section-title">
+                <span class="headline-line">三个正在打磨的产品，</span>
+                <span class="headline-line">分别服务三种日常场景。</span>
+            </h2>
+            <p class="section-lead">
+                <span class="copy-line">Travel gogo 面向旅行整理，Guanxi Score 面向关系记录，Plantle 面向植物养护。</span>
+                <span class="copy-line">你可以从这里进入产品支持页，了解更多或反馈问题。</span>
+            </p>
+
+            <div class="product-grid">
+                <a class="product-card" href="Travel gogo support.html">
+                    <div class="product-top">
+                        <img class="product-icon" src="Travela gogo app-logo.png" alt="Travel gogo 图标">
+                        <span class="product-kind">Travel</span>
+                    </div>
+                    <h3>Travel gogo</h3>
+                    <p>一个旅行整理工具，帮助把目的地、计划和旅途灵感放在一起。</p>
+                    <span class="product-link">打开支持页</span>
+                </a>
+
+                <a class="product-card" href="Guanxi support.html">
+                    <div class="product-top">
+                        <img class="product-icon" src="Guanxi app-logo.png" alt="Guanxi Score 图标">
+                        <span class="product-kind">Relationship</span>
+                    </div>
+                    <h3>Guanxi Score</h3>
+                    <p>一个关系记录与观察工具，用简单结构帮助回看互动、边界和关系状态。</p>
+                    <span class="product-link">打开支持页</span>
+                </a>
+
+                <a class="product-card" href="Plantle support.html">
+                    <div class="product-top">
+                        <img class="product-icon" src="Plantle app-logo.png" alt="Plantle 图标">
+                        <span class="product-kind">Plant Care</span>
+                    </div>
+                    <h3>Plantle</h3>
+                    <p>一个植物养护记录工具，用来记录浇水、状态和生长变化。</p>
+                    <span class="product-link">打开支持页</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section" id="profile">
+            <div class="profile-layout">
+                <div class="profile-text">
+                    <div class="section-kicker">About</div>
+                    <h2 class="section-title">
+                        <span class="headline-line">我还在学习，</span>
+                        <span class="headline-line">怎样把想法做成可靠的小产品。</span>
+                    </h2>
+                    <p>
+                        我的背景主要是内容和运营：做过科技内容生态、创作者关系、平台活动，也做过节目和知识内容。相比宏大的概念，我更在意一个功能能不能让用户少一点麻烦。
+                    </p>
+                    <p>
+                        转向独立开发后，我会从自己也会遇到的小问题开始做起。产品还不完美，但我希望它们足够清楚、轻量，并且可以慢慢变好。
+                    </p>
+                </div>
+                <aside class="focus-panel" aria-label="关注方向">
+                    <h3>我最近在练习</h3>
+                    <ul class="focus-list">
+                        <li>把 AI 能力做成简单、可解释的功能。</li>
+                        <li>围绕旅行、关系、植物养护等生活主题做轻量工具。</li>
+                        <li>持续补齐设计、开发和产品运营的基本功。</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section" id="experience">
+            <div class="section-kicker">Experience</div>
+            <h2 class="section-title">
+                <span class="headline-line">从内容制作和平台运营，</span>
+                <span class="headline-line">慢慢走向独立开发。</span>
+            </h2>
+
+            <div class="timeline">
+                <article class="timeline-row">
+                    <div class="timeline-year">2015 - 2018</div>
+                    <div>
+                        <h3>从选题、采访到节目制作</h3>
+                        <p>我曾在央视、爱奇艺等平台参与资讯、财经、知识内容的策划和制作，做过选题、采访、脚本和内容交付。</p>
+                    </div>
+                </article>
+                <article class="timeline-row">
+                    <div class="timeline-year">2018 - 2025</div>
+                    <div>
+                        <h3>做内容平台和创作者运营</h3>
+                        <p>在字节跳动，我主要做科技与泛知识方向的内容运营，包括创作者合作、活动策划、数据分析和跨团队项目推进。</p>
+                    </div>
+                </article>
+                <article class="timeline-row">
+                    <div class="timeline-year">Now</div>
+                    <div>
+                        <h3>尝试做自己的产品</h3>
+                        <p>现在我以独立开发者身份做移动应用，把过去对内容、用户和 AI 的理解，慢慢放进具体功能里。</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="capabilities" aria-label="能力关键词">
+                <span class="tag">内容策略</span>
+                <span class="tag">创作者运营</span>
+                <span class="tag">产品设计</span>
+                <span class="tag">AI 应用</span>
+                <span class="tag">移动端体验</span>
+                <span class="tag">数据分析</span>
+                <span class="tag">活动统筹</span>
+                <span class="tag">知识内容</span>
+            </div>
+        </section>
+
+        <section class="section" id="principles">
+            <div class="section-kicker">Principles</div>
+            <h2 class="section-title">
+                <span class="headline-line">我做产品时，</span>
+                <span class="headline-line">尽量保持清楚和克制。</span>
+            </h2>
+            <div class="principles">
+                <article class="principle">
+                    <h3>先理解场景</h3>
+                    <p>先弄清楚用户为什么需要它，再决定功能要做到什么程度。</p>
+                </article>
+                <article class="principle">
+                    <h3>让信息有秩序</h3>
+                    <p>把分类、标签和复盘方法，用到 App 的信息结构里。</p>
+                </article>
+                <article class="principle">
+                    <h3>把 AI 放在合适位置</h3>
+                    <p>AI 可以提高效率，但它应该容易理解，也方便用户调整。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section closing" id="closing">
+            <div class="section-kicker">Say Hi</div>
+            <h2 class="section-title">
+                <span class="headline-line">欢迎试用，</span>
+                <span class="headline-line">也欢迎一起聊聊想法。</span>
+            </h2>
+            <p class="section-lead">
+                <span class="copy-line">如果你在使用这些 App 时遇到问题，或对这类小工具有建议，</span>
+                <span class="copy-line">欢迎直接发邮件联系我，一起把它们慢慢做得更好。</span>
+            </p>
+            <div class="closing-contact">
+                邮箱：<a class="closing-email" href="mailto:jorykk11@icloud.com">jorykk11@icloud.com</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JoryKK. Independent app developer.</p>
+    </footer>
+    <script src="assets/site-common.js"></script>
 </body>
 </html>
