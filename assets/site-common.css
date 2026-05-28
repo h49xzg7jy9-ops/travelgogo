@@ -1,0 +1,505 @@
+html {
+    scroll-padding-top: 88px;
+}
+
+.jory-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    color: #17201c;
+    text-align: left;
+    background: rgba(251, 250, 246, 0.9);
+    border-bottom: 1px solid rgba(218, 213, 201, 0.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+body.site-home .jory-topbar {
+    color: #fffaf0;
+    background: linear-gradient(180deg, rgba(10, 14, 13, 0.78), rgba(10, 14, 13, 0.18));
+    border-bottom-color: rgba(255, 250, 240, 0.08);
+}
+
+body.site-page {
+    padding-top: 76px;
+}
+
+.jory-topbar-inner {
+    width: min(1180px, calc(100% - 48px));
+    min-height: 68px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.jory-brand {
+    color: inherit;
+    font-size: 15px;
+    font-weight: 760;
+    letter-spacing: 0;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.jory-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.jory-nav-link,
+.jory-products-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0 13px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.jory-nav-link:hover,
+.jory-nav-link:focus-visible,
+.jory-products-trigger:hover,
+.jory-products-trigger:focus-visible,
+.jory-products-menu-open .jory-products-trigger {
+    background: rgba(31, 107, 85, 0.08);
+    border-color: rgba(31, 107, 85, 0.14);
+}
+
+body.site-home .jory-nav-link,
+body.site-home .jory-products-trigger {
+    color: rgba(255, 250, 240, 0.88);
+}
+
+body.site-home .jory-nav-link:hover,
+body.site-home .jory-nav-link:focus-visible,
+body.site-home .jory-products-trigger:hover,
+body.site-home .jory-products-trigger:focus-visible,
+body.site-home .jory-products-menu-open .jory-products-trigger {
+    color: #ffffff;
+    background: rgba(255, 250, 240, 0.12);
+    border-color: rgba(255, 250, 240, 0.2);
+}
+
+.jory-products {
+    position: relative;
+}
+
+.jory-products-trigger::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    margin-left: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.jory-products-menu-open .jory-products-trigger::after {
+    transform: translateY(1px) rotate(225deg);
+}
+
+.jory-products-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: min(292px, calc(100vw - 32px));
+    padding: 6px;
+    border: 1px solid rgba(218, 213, 201, 0.72);
+    border-radius: 8px;
+    background: rgba(255, 253, 247, 0.92);
+    box-shadow: 0 18px 48px rgba(33, 45, 39, 0.16);
+    backdrop-filter: blur(24px) saturate(1.08);
+    -webkit-backdrop-filter: blur(24px) saturate(1.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px) scale(0.98);
+    transform-origin: top right;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+}
+
+.jory-products-menu-open .jory-products-menu,
+.jory-products:hover .jory-products-menu,
+.jory-products:focus-within .jory-products-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.jory-product-link {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    color: #17201c;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.jory-product-link:hover,
+.jory-product-link:focus-visible {
+    background: rgba(31, 107, 85, 0.09);
+    transform: translateX(2px);
+}
+
+.jory-product-link img {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(28, 41, 35, 0.12);
+}
+
+.jory-product-link span {
+    min-width: 0;
+    text-align: left;
+    justify-self: start;
+}
+
+.jory-product-link strong {
+    display: block;
+    color: #17201c;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.jory-product-link small {
+    display: block;
+    margin-top: 4px;
+    color: #69736e;
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+body.site-home .jory-products-menu {
+    border-color: rgba(255, 250, 240, 0.16);
+    background:
+        linear-gradient(180deg, rgba(31, 35, 33, 0.86), rgba(12, 17, 15, 0.82));
+    box-shadow: 0 22px 58px rgba(0, 0, 0, 0.36);
+}
+
+body.site-home .jory-product-link {
+    color: #fffaf0;
+}
+
+body.site-home .jory-product-link:hover,
+body.site-home .jory-product-link:focus-visible {
+    background: rgba(255, 250, 240, 0.09);
+}
+
+body.site-home .jory-product-link strong {
+    color: #ffffff;
+}
+
+body.site-home .jory-product-link small {
+    color: rgba(255, 250, 240, 0.68);
+}
+
+body.site-home .jory-product-link img {
+    background: rgba(255, 250, 240, 0.96);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+body.site-page .jory-products-menu {
+    border-color: color-mix(in srgb, var(--primary-color, #1f6b55) 18%, var(--border-color, #d2d2d7));
+    background: rgba(255, 255, 252, 0.94);
+    box-shadow: 0 18px 44px rgba(29, 31, 34, 0.12);
+}
+
+body.site-page .jory-product-link:hover,
+body.site-page .jory-product-link:focus-visible {
+    background: color-mix(in srgb, var(--primary-color, #1f6b55) 10%, transparent);
+}
+
+body.site-page .container {
+    width: min(980px, calc(100% - 40px));
+    padding: 42px 0 68px;
+}
+
+body.site-page .container > header {
+    margin-bottom: 58px;
+}
+
+body.site-page h1 {
+    font-size: clamp(34px, 6vw, 48px);
+    line-height: 1.08;
+    letter-spacing: 0;
+}
+
+body.site-page .subtitle,
+body.site-page .last-updated {
+    line-height: 1.65;
+}
+
+body.site-page .product-copy-panel,
+body.site-page .product-feature-panel {
+    padding: 32px;
+    border: 1px solid var(--border-color, #d2d2d7);
+    border-radius: 10px;
+    background: var(--bg-secondary, #f5f5f7);
+}
+
+body.site-page .product-copy-panel p,
+body.site-page .product-feature-lead {
+    margin: 0;
+    color: var(--text-secondary, #86868b);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+body.site-page .product-copy-panel p + p {
+    margin-top: 14px;
+}
+
+body.site-page .product-feature-list {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.site-page .product-feature-lead + .product-feature-list {
+    margin-top: 24px;
+}
+
+body.site-page .product-feature-lead + ul {
+    margin-top: 24px !important;
+}
+
+body.site-page .product-feature-item {
+    position: relative;
+    padding-left: 28px;
+    color: var(--text-secondary, #86868b);
+    line-height: 1.75;
+}
+
+body.site-page .product-feature-item::before {
+    content: "";
+    position: absolute;
+    top: 0.72em;
+    left: 2px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--primary-color, #1f6b55);
+}
+
+body.site-page .product-feature-item strong {
+    color: var(--text-primary, #1d1d1f);
+}
+
+body.site-page .plantle-feature-panel {
+    padding: 34px;
+}
+
+body.site-page .plantle-feature-panel .product-feature-lead {
+    max-width: 68ch;
+    font-size: 17px;
+}
+
+body.site-page .plantle-feature-list {
+    display: grid;
+    gap: 22px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.site-page .plantle-feature-item {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+body.site-page .plantle-feature-check {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    color: var(--primary-color, #34c759);
+    font-size: 24px;
+    line-height: 1;
+}
+
+body.site-page .plantle-feature-copy strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-primary, #1d1d1f);
+    font-size: 18px;
+    line-height: 1.35;
+}
+
+body.site-page .plantle-feature-copy span {
+    display: block;
+    max-width: 74ch;
+    color: var(--text-primary, #1d1d1f);
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+body.site-page .app-logo {
+    width: 106px;
+    height: 106px;
+    border-radius: 24px;
+}
+
+body.site-page .section-title,
+body.site-page .section h2 {
+    font-size: clamp(24px, 4vw, 30px);
+    line-height: 1.18;
+    letter-spacing: 0;
+}
+
+body.site-page .section {
+    margin-bottom: 54px;
+}
+
+body.site-page .contact-card,
+body.site-page .faq-item,
+body.site-page .link-card {
+    border: 1px solid var(--border-color, #d2d2d7);
+    border-radius: 10px;
+    background: var(--bg-secondary, #f5f5f7);
+}
+
+body.site-page .link-item {
+    border-radius: 8px;
+}
+
+body.site-page .contact-icon {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+
+body.site-page .back-link a,
+body.site-page .lang-switcher button,
+body.site-page .app-store-button,
+body.site-page .link-item,
+body.site-page .faq-question {
+    border-radius: 8px;
+}
+
+body.site-page footer {
+    line-height: 1.7;
+}
+
+.headline-line,
+.copy-line {
+    display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+    .jory-topbar {
+        color: #f5f1e8;
+        background: rgba(21, 24, 22, 0.9);
+        border-bottom-color: rgba(58, 64, 58, 0.86);
+    }
+
+    body.site-page .jory-products-menu {
+        background: rgba(28, 33, 29, 0.98);
+        border-color: rgba(58, 64, 58, 0.92);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+    }
+
+    body.site-page .jory-product-link,
+    body.site-page .jory-product-link strong {
+        color: #f5f1e8;
+    }
+
+    body.site-page .jory-product-link small {
+        color: #b7b0a4;
+    }
+
+    body.site-page .jory-product-link:hover,
+    body.site-page .jory-product-link:focus-visible {
+        background: rgba(119, 201, 163, 0.12);
+    }
+}
+
+@media (max-width: 760px) {
+    body.site-page {
+        padding-top: 68px;
+    }
+
+    .jory-topbar-inner {
+        width: calc(100% - 28px);
+        min-height: 62px;
+        gap: 12px;
+    }
+
+    .jory-nav-links {
+        gap: 4px;
+    }
+
+    .jory-nav-link {
+        display: none;
+    }
+
+    .jory-nav-link.jory-home-link {
+        display: inline-flex;
+    }
+
+    .jory-products-trigger {
+        padding: 0 11px;
+        font-size: 13px;
+    }
+
+    .jory-products-menu {
+        right: -8px;
+        width: min(314px, calc(100vw - 28px));
+    }
+
+    body.site-page .container {
+        width: calc(100% - 32px);
+        padding: 32px 0 56px;
+    }
+
+    body.site-page .product-copy-panel,
+    body.site-page .product-feature-panel {
+        padding: 24px;
+    }
+
+    body.site-page .plantle-feature-panel {
+        padding: 24px;
+    }
+
+    body.site-page .plantle-feature-list {
+        gap: 20px;
+    }
+
+    body.site-page .plantle-feature-item {
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    body.site-page .plantle-feature-check {
+        width: 24px;
+        height: 24px;
+        font-size: 22px;
+    }
+
+    .headline-line,
+    .copy-line {
+        display: inline;
+    }
+}
